@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'TitilliumText22L-Light';
+    src: url('../fonts/TitilliumText22L002.woff') format('woff');
+}
+@font-face {
+    font-family: 'TitilliumText22L-Medium';
+    src: url('../fonts/TitilliumText22L004.woff') format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+html {
+    
+    font-size: 62.5%;
+}
+body {
+    background-image: url('../img/Background.png');
+}
+.page-logo {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1em;
+    width: 95%;
+}
+.form h2 {
+    font-family: 'TitilliumText22L-Medium', Helvatica, sans-serif;
+    font-size: 3.2rem;
+    text-shadow: 1px 1px 1px rgb(1, 1, 1);
+    text-align: center;
+    margin: 1em;
+    color: rgb(255, 255, 255);
+}
+.form-content {
+    background-color: rgb(244, 244, 244);
+    font-family: 'TitilliumText22L-Light', Helvatica, sans-serif;
+    color: rgb(175, 175, 175);
+    font-size: 1.6rem;
+    width:  90%;
+    margin: 0 auto;
+    border: 1px solid rgb(244, 244, 244);
+    border-radius: 1%;
+}
+.form-content .input-groups {
+    margin: 1em auto;
+    width: 90%;
+}
+.form-content .input-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 2.4em;
+    padding: 0.5em;
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 3%;
+    margin-bottom: 1em;
+}
+.form-content .form-input {
+    background: none;
+    border: none;
+    font-family: 'TitilliumText22L-Light', Helvatica, sans-serif;
+    color: rgb(175, 175, 175);
+    font-size: 1.6rem;
+    padding-left: 1em;
+    border-left: 1px solid rgb(228, 228, 228);
+    width: 100%;
+}
+.form-content .form-input::-webkit-input-placeholder {
+    font-family: 'TitilliumText22L-Light', Helvatica, sans-serif;
+    color: rgb(175, 175, 175);
+}
+.form-content .form-input::-moz-placeholder { /* Firefox 19+ */
+    font-family: 'TitilliumText22L-Light', Helvatica, sans-serif;
+    color: rgb(175, 175, 175);
+}
+.form-content .form-input:-ms-input-placeholder { /* IE 10+ */
+    font-family: 'TitilliumText22L-Light', Helvatica, sans-serif;
+    color: rgb(175, 175, 175);
+}
+.form-content .form-input:-moz-placeholder { /* Firefox 18- */
+    font-family: 'TitilliumText22L-Light', Helvatica, sans-serif;
+    color: rgb(175, 175, 175);
+}
+.form-content .form-button {
+    display: block;
+    background: none;
+    border: none;
+    border-radius: 3%;
+    font-family: 'TitilliumText22L-Medium', Helvatica, sans-serif;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 1px rgb(1, 1, 1);
+    color: rgb(255, 255, 255);
+    background-color: rgb(143, 203, 40);
+    border: 1px solid rgb(59, 154, 0);
+    width: 100%;
+    height: 2.3em;
+    /*  box-shadow: inset */
+}
+.form-content .flex-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.form-content .flex-container > * {
+   width: 8em;
+}
+.form-content .form-message {
+    resize: none;
+    background: none;
+    border: none;
+    width: 100%;
+    margin-bottom: 0.5em;
+    font-family: 'TitilliumText22L-Light', Helvatica, sans-serif;
+    color: rgb(175, 175, 175);
+    font-size: 1.6rem;
+    padding: 0.5em;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 3%;
+}
+.form-content .form-checkbox {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 100%;
+}
+ .form-checkbox input[type=checkbox] {
+    display: none;
+}
+.form-checkbox input[type=checkbox] + .checkbox-text:before {
+    content: url(../img/checkbox.png);
+    padding: 0.2em;
+    height: 1em;
+    margin-right: 1em;
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 3px;
+}
+.form-checkbox input[type=checkbox]:checked + .checkbox-text:before {
+     content: " ";
+}
+.form-content .icon {
+    position: relative;
+    -ms-flex-item-align: center;
+    align-self: center;
+    padding-left: 0.3em;
+    padding-right: 0.8em;
+}
+.hidden {
+    display: none;
+}
