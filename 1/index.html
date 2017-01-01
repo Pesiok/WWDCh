@@ -9,14 +9,14 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-        <header>
+        <a href="#">
             <h1 class="hidden">Masteralb</h1>
             <img src="img/Masteralb.com TOP LOGO.png" alt="logo" class="page-logo">
-        </header>
+        </a>
         <form autocomplete="on" class="form">
             <h2>Register Form</h2>
-            <div class="form-content">
-                <div class="input-groups">
+            <div class="form-shadow">
+                <div class="form-content">
                     <div class="input-group">
                         <label for="reg-username" class="hidden">Username</label>
                         <img src="img/user.png" alt="" class="icon">
@@ -47,18 +47,20 @@
                             <option value="Szczebrzeszyn">Szczebrzeszyn</option>
                         </select>
                     </div>
-                    <label class="form-checkbox">
-                        <input type="checkbox" id="agree-terms" name="terms "required></input>
-                        <span class="checkbox-text">I have read and accept the terms of use.</span>
-                    </label>
-                    <button type="submit" id="reg-submit" class="form-button">Sign Up</button>
+                    <div>
+                        <label class="form-checkbox">
+                            <input type="checkbox" id="agree-terms" name="terms "required></input>
+                            <span class="checkbox-text">I have read and accept the terms of use.</span>
+                        </label>
+                        <button type="submit" id="reg-submit" class="form-button">Sign Up</button>
+                    </div>
                 </div>
             </div>
         </form>
         <form autocomplete="on" class="form">
             <h2>Send Email</h2>
-            <div class="form-content">
-                <div class="input-groups">
+            <div class="form-shadow">
+                <div class="form-content">
                     <div class="input-group">
                         <label for="name" class="hidden">Name</label>
                          <img src="img/user.png" alt="" class="icon">
@@ -69,20 +71,22 @@
                         <img src="img/mail.png" alt="" class="icon">
                         <input type="email" id="send-email" name="email" class="form-input" placeholder="Your Email" required></input>
                     </div>
-                    <label for="message" class="hidden">Message</label>
-                    <textarea id="message" name="message" class="form-message" placeholder="Type your message..." rows="10"></textarea>
-                    <label class="form-checkbox">
-                        <input type="checkbox" id="send-copy" name="copy"></input>
-                        <span class="checkbox-text">Send a copy to my Email</span>
-                    </label>
-                    <button type="submit" id="msg-submit" class="form-button">Send Email</button>
+                    <div>
+                        <label for="message" class="hidden">Message</label>
+                        <textarea id="message" name="message" class="form-message" placeholder="Type your message..." rows="10"></textarea>
+                        <label class="form-checkbox">
+                            <input type="checkbox" id="send-copy" name="copy"></input>
+                            <span class="checkbox-text">Send a copy to my Email</span>
+                        </label>
+                        <button type="submit" id="msg-submit" class="form-button">Send Email</button>
+                    </div>
                 </div>
             </div>
         </form>
         <form autocomplete="on" class="form">
             <h2>Sign In Form</h2>
-            <div class="form-content">
-                <div class="input-groups">
+            <div class="form-shadow">
+                <div class="form-content">
                     <div class="input-group">
                         <label for="singin-username" class="hidden">Username</label>
                          <img src="img/user.png" alt="" class="icon">
@@ -105,8 +109,8 @@
         </form>
         <form autocomplete="on" class="form">
             <h2>Recover Form</h2>
-            <div class="form-content">
-                <div class="input-groups">
+            <div class="form-shadow">
+                <div class="form-content">
                     <div class="input-group">
                         <label for="rec-email" class="hidden">Email</label>
                         <img src="img/mail.png" alt="" class="icon">
@@ -126,8 +130,8 @@
         </form>
         <form autocomplete="on" class="form">
             <h2>Subscribe Form</h2>
-            <div class="form-content">
-                <div class="input-groups">
+            <div class="form-shadow">
+                <div class="form-content">
                     <div class="input-group">
                         <label for="sub-email" class="hidden">Email</label>
                          <img src="img/mail.png" alt="" class="icon">
@@ -135,12 +139,13 @@
                     </div>
                     <div class="flex-container">
                         <button type="submit" id="sub-submit" class="form-button">Subscribe</button>
-                        <button type="submit" id="sub-denial" class="form-button">No, Thanks</button>
+                        <button type="submit" id="sub-denial" class="form-button button-denial">No, Thanks</button>
                     </div>
                 </div>
             </div>
         </form>
-        <img src="img/Masteralb.com LOGO.png" alt="logo" class="page-logo">
-			
+        <a src="#">
+            <img src="img/Masteralb.com LOGO.png" alt="logo" class="page-logo">
+        </a>
 	</body>
 </html>
