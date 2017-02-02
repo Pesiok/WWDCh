@@ -1,0 +1,25 @@
+.page-header {
+    
+    position: absolute;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    
+    &__logo {
+        position: absolute;
+        left: 0.5em;
+        font-family: 'Pacifico';
+        color: $mainBlack;
+        font-size: 2.4rem;
+        margin: 0;
+    }
+    
+    &__menu-icon {
+        position: absolute;
+        right: 1em;
+        display: block;
+        height: 2.67em;
+        width: 2.67em;
+        background: none;
+        border: none;
+    }
+}

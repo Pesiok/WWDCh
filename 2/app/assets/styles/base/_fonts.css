@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'Pacifico';
+    src: url('../fonts/Pacifico.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Raleway-Bold';
+    src: url('../fonts/Raleway-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Raleway-ExtraBold';
+    src: url('../fonts/Raleway-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Raleway-Light';
+    src: url('../fonts/Raleway-Light.ttf') format('truetype');
+}
