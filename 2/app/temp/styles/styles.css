@@ -494,14 +494,15 @@ html {
 }
 
 .page-header {
-    
     position: absolute;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
+    height: 4em;
+    background-color: rgb(255, 255, 255);
 }
 
 .page-header__logo {
   position: absolute;
+  z-index: 2;
   left: 0.5em;
   font-family: 'Pacifico';
   color: rgb(38, 38, 38);
@@ -511,12 +512,79 @@ html {
 
 .page-header__menu-icon {
   position: absolute;
+  z-index: 2;
+  top: 1em;
   right: 1em;
   display: block;
-  height: 2.67em;
-  width: 2.67em;
-  background: none;
+  height: 1.3em;
+  width: 2em;
+  background: transparent;
   border: none;
+}
+
+.page-header__menu-icon__label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.page-header__menu-icon::before, .page-header__menu-icon__middle, .page-header__menu-icon::after {
+  position: absolute;
+  width: 100%;
+  height: 0.2em;
+  background-color: rgb(38, 38, 38);
+}
+
+.page-header__menu-icon::before {
+  content: "";
+  top: 0;
+  left: 0;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+}
+
+.page-header__menu-icon__middle {
+  top: 0.5em;
+  left: 0;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+}
+
+.page-header__menu-icon::after {
+  content: "";
+  bottom: 0;
+  left: 0;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+}
+
+.page-navigation {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.page-navigation--is-expanded {
+  opacity: 1;
 }
 
 .page-navigation ul {
@@ -543,4 +611,8 @@ html {
 
 .page-navigation a:hover, .page-navigation a:focus {
   border-top: solid rgb(255, 96, 51);
+}
+
+.page-section {
+    
 }
