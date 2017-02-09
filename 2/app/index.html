@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,21 +10,25 @@
     </head>
     <body>
         <header class="page-header">
-            <h1 class="page-header__logo">Cakee</h1>
-            <button class="page-header__menu-icon" aria-expanded="false">
-                <span class="page-header__menu-icon__label">Open/Close Menu</span>
-                <div class="page-header__menu-icon__middle" aria-hidden="true"></div>
-            </button>
-            <nav class="page-navigation">
-                <ul role="navigation">            
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
+            <div class="wrapper grid">
+                <div class="page-header__content grid__cell">
+                    <h1 class="page-header__logo">Cakee</h1>
+                    <button class="page-header__menu-icon" aria-expanded="false">
+                        <span class="page-header__menu-icon__label">Open/Close Menu</span>
+                        <div class="page-header__menu-icon__middle" aria-hidden="true"></div>
+                    </button>
+                </div>
+                <nav class="page-navigation grid__cell" aria-controls="main-navigation">
+                    <ul id="main-navigation wrapper" role="navigation">            
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
         <main class="wrapper">
             <section class="page-section">
@@ -114,7 +118,7 @@
                 </div>
             </section>
         </main>
-        <footer>
+        <footer class="wrapper">
             <p>&copy; 2015 Company. All rights reserved.</p>
             <!-- logo -->
             <p>Made with <span>love</span> by Auskteez</p>

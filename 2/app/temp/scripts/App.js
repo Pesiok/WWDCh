@@ -102,8 +102,17 @@ var MobileMenu = function () {
     }, {
         key: "toggleMenu",
         value: function toggleMenu() {
+
+            // CSS Classes
             this.pageNavigation.classList.toggle("page-navigation--is-expanded");
-            //this.menuIcon.classList.toggle("page-header__menu-icon--close-x");
+            this.menuIcon.classList.toggle("page-header__menu-icon--close-x");
+
+            // Aria atributes
+            if (this.menuIcon.getAttribute("aria-expanded") == "false") {
+                this.menuIcon.setAttribute("aria-expanded", "true");
+            } else {
+                this.menuIcon.setAttribute("aria-expanded", "false");
+            }
         }
     }]);
 

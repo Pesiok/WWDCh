@@ -1,30 +1,42 @@
 .page-header {
-    position: absolute;
     width: 100%;
-    height: 4em;
+    height: 6em;
+    margin-top: 1em;
     background-color: rgb(255, 255, 255);
     
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+    
     &__logo {
-        position: absolute;
+        display: block;
         z-index: 2;
-        left: 0.5em;
         font-family: 'Pacifico';
         color: $mainBlack;
         font-size: 2.4rem;
-        margin: 0;
+        margin-top: 1em;
+        
+        @mixin atMedium {
+            font-size: 3.8rem;
+            margin-top: 0.5em;
+        }
     }
     
     &__menu-icon {
-        
-        position: absolute;
+        position: relative;
         z-index: 2;
-        top: 1em;
-        right: 1em;
-        display: block;
-        height: 1.3em;
-        width: 2em;
+        top: 3em;
+        height: 1.6em;
+        width: 2.1em;
         background: transparent;
         border: none;
+        outline-color: $mainOrange;
+        cursor: pointer;
+        
+        @mixin atMedium {
+            display: none;
+        }
         
         &__label {
             @mixin visuallyhidden;
@@ -41,12 +53,12 @@
             content: "";
             top: 0;
             left: 0;
-            transform-origin: 0 0;
             transition: transform .3s ease-out;
+            transform-origin: left center;
         }
         
         &__middle {
-            top: 0.5em;
+            top: 0.7em;
             left: 0;
             transition: all .3s ease-out;
             transform-origin: 0 50%;
@@ -56,8 +68,24 @@
             content: "";
             bottom: 0;
             left: 0;
-            transform-origin: 0 100%;
             transition: transform .3s ease-out;
+            transform-origin: left center;
+        }
+    }
+    
+    &__menu-icon--close-x {
+        
+        &::before {
+            transform: rotate(33deg) scaleX(1.24);
+        }
+        
+        .page-header__menu-icon__middle {
+            width: 0%;
+            opacity: 0;
+        }
+        
+        &::after {
+            transform: rotate(-33deg) scaleX(1.24);
         }
     }
 }
