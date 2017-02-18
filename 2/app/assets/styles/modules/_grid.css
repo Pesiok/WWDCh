@@ -1,8 +1,72 @@
 .grid {
     display: flex;
     
-    &__cell {
-        flex: 1;
+    &-m {
+        display: block;
+        
+        @mixin atMedium {
+            display: flex;
+        }
     }
     
+    &--center {
+        align-items: center;
+    }
+    
+    &--reverse {
+        flex-direction: row-reverse;
+    }
+    &--column {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    &__cell {
+        flex: 1;
+        
+        &-3 {
+            flex: 3;
+        }
+
+        &-gallery-l {
+            flex: 1.4;
+        }
+        
+        &-gallery-s {
+            flex: 0.67273;
+        }
+        
+        &--margin-right-m-xs {
+            @mixin atMedium {
+                margin-right: 2.7%;
+            }
+        }
+        
+        &--margin-right-m-s {
+            @mixin atMedium {
+                margin-right: 7%;
+            }
+        }
+        
+        &--margin-right-m-l {
+            @mixin atMedium {
+                margin-right: 65%;
+            }
+        }
+        
+        &--margin-left-m-s {
+            @mixin atMedium {
+                margin-left: 7%;
+            }
+        }
+        
+        
+        &--center {
+            align-self: center;
+        }
+    }
+    
+    
+    
+
 }

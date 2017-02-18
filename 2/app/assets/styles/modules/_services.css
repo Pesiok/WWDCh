@@ -1,0 +1,125 @@
+.services {
+    background-color: rgb(112, 191, 255);
+    
+    &__content {
+        padding: 5em 0;
+        
+        
+        
+    }
+    
+    &__heading {
+        background-image: url(../../assets/images/our-services.png);
+        background-repeat: no-repeat;
+        background-size: 70%;
+        background-position: 50% 25%;
+        color: rgb(255, 255, 255);
+        
+        height: 31em;
+        @mixin atSmall {
+            height: 43em;
+            background-size: 55%;
+        }
+        @mixin atMedium {
+            height: 55em;
+            background-size: 70%;
+        }
+        
+        
+        &__content {
+            font-family: 'Raleway-Bold';
+            text-transform: capitalize;
+            font-size: 4.8rem;
+            text-align: center;
+            
+            @mixin atSmall {
+                font-size: 6rem;
+            }
+            
+            @mixin atMedium {
+                font-size: 5.2rem;
+            }
+
+            @mixin atLarge {
+                font-size: 6.5rem;
+                text-align: left;
+            }
+            
+            @mixin atExtraLarge {
+                font-size: 8rem;
+            }
+            
+            margin-top: 0;
+            padding-top: 2.4em;
+            
+            @mixin atSmall {
+                 padding-top: 2.8em;
+            }
+            
+            @mixin atMedium {    
+                padding-top: 3.4em;
+            }
+            
+            @mixin atLarge {
+                 padding-top: 2.8em;
+            }
+            
+            @mixin atExtraLarge {
+                 padding-top: 2.4em;
+            }
+        }
+    }
+    
+    &__list {
+        
+        @mixin atExtraLarge {
+            margin-left: 5em;
+        }
+        
+        ul {
+           padding: 0;
+        }
+        
+        
+        &__item {
+            list-style: none;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 3px 5px 12px -4px rgba(0,0,0,0.75);
+            transition: background-color 0.3s cubic-bezier(.15, .07, 0, 1.03);
+            
+            font-family: 'Raleway-Bold';
+            color: $mainBlack;
+            font-size: 1.8rem;
+            text-align: center;
+            
+            height: 4em;
+            max-width: 17em;
+            margin: 1em auto;
+            
+            @mixin atMedium {
+                height: 5em;
+                max-width: 20em;
+                margin-bottom: 1.8em;
+            }
+            
+        }
+        
+        &__item:hover {
+            position: relative;
+            top: -3px;
+            left: -1px;
+            background-color: rgb(253, 124, 55);
+            
+        }
+       
+        &__icon {
+            border-left: 1px solid $mainBlack;
+            height: 100%;
+    
+            span {
+                margin: 0 auto;
+            }
+            
+        }
+    }
+}

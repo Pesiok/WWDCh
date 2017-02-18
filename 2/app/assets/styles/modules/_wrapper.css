@@ -2,7 +2,12 @@
     width: 92%;
     margin: 0 auto;
     
-    @mixin atMedium {
-        width: 80%;
+    @mixin atSmall {
+        width: 89%;
+    }
+    
+    @mixin atLarge {
+        width: 85%;
+        max-width: 1200px;
     }
 }

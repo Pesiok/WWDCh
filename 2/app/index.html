@@ -30,98 +30,176 @@
                 </nav>
             </div>
         </header>
-        <main class="wrapper">
-            <section class="page-section">
-                <h2>Fresh life</h2>
-                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                <a href="#">Get free now</a>
+        <main>
+            <section class="landing">
+                <div class="wrapper landing__content grid grid--center">
+                    <div class="grid__cell grid__cell--margin-right-m-l">
+                        <h2 class="landing__heading">Fresh life</h2>
+                        <p class="landing__text">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                        <a href="#" class="btn btn--center-s">Get free now</a>
+                    </div>
+                </div>
             </section>
-            <section>
-                <h2>About Us</h2>
-                <p>Abore Chee magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullmaco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
-                <p>Nim id est laborum. Sed ut perspiciatatis unde omnis iste natus error sit voluptatem accosantium doloremque laudantium, totam rem qperiam, eaque ipsa quae ab illo inventore.</p>
+            <section class="about">
+                <div class="wrapper grid-m grid--center about__content">
+                    <div class="grid__cell about__img" aria-hidden="true">
+                        <img src="assets/images/aboutus.png" alt="">
+                    </div>
+                    <div class="grid__cell grid__cell--margin-left-m-s">
+                        <h2 class="about__heading">About Us</h2>
+                        <p class="about__text">Abore Chee magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullmaco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                        <p class="about__text">Nim id est laborum. Sed ut perspiciatatis unde omnis iste natus error sit voluptatem accosantium doloremque laudantium, totam rem qperiam, eaque ipsa quae ab illo inventore.</p>
+                    </div>
+                </div>
             </section>
-            <section>
-                <h2>Our services</h2>
-                <ul>
-                    <li>Online Shopping</li>
-                    <li>Quality Product</li>
-                    <li>Domestic &amp; International Delivery</li>
-                    <li>Well Organized</li>
-                </ul>
+            <section class="services">
+                <div class="wrapper services__content grid-m grid--reverse grid--center">
+                    <div class="grid__cell services__heading">
+                        <h2 class="services__heading__content">Our services</h2>
+                    </div>
+                    <div class="services__list grid__cell grid__cell--margin-right-m-s">
+                        <ul>
+                            <li class="services__list__item grid grid--center">
+                                <div class="grid__cell-3">
+                                    <strong>Online Shopping</strong>
+                                </div>
+                                <div class="services__list__icon grid__cell grid" aria-hidden="true">
+                                    <span class="icon icon--shopping grid__cell--center"></span>
+                                </div>
+                            </li>
+                            <li class="services__list__item grid grid--center">
+                                <div class="grid__cell-3">
+                                    <strong>Quality Product</strong>
+                                </div>
+                                <div class="services__list__icon grid__cell grid" aria-hidden="true">   
+                                    <span class="icon icon--product grid__cell--center"></span>
+                                </div>
+                            </li>
+                            <li class="services__list__item grid grid--center">
+                                <div class="grid__cell-3">
+                                    <strong>Domestic &amp; International Delivery</strong>
+                                </div>
+                                <div class="services__list__icon grid__cell grid" aria-hidden="true">
+                                    <span class="icon icon--delivery grid__cell--center"></span>
+                                </div>
+                            </li>
+                            <li class="services__list__item grid grid--center">
+                                <div class="grid__cell-3">
+                                    <strong>Well Organized</strong>
+                                </div>
+                                <div class="services__list__icon grid__cell grid" aria-hidden="true">
+                                    <span class="icon icon--organized grid__cell--center"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </section>
-            <section>
-                <h2>Gallery</h2>
-                <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-
-                <!-- img -->
-
-                <button>View more</button>
+            <section class="gallery">
+                <div class="wrapper gallery__content">
+                    <div >
+                        <h2 class="gallery__heading">Gallery</h2>
+                        <p class="gallery__text">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                    </div>
+                    <div class="gallery__row grid-m">
+                        <div class="grid__cell-gallery-l grid__cell--margin-right-m-xs gallery__img">
+                            <img src="assets/images/gallery-l.png">
+                        </div>
+                        <div class="grid__cell-gallery-s grid-m grid--column">
+                            <div class="gallery__img">
+                                <img src="assets/images/gallery-s.png">
+                            </div>
+                            <div class="gallery__img">
+                                <img src="assets/images/gallery-s2.png">
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="gallery__row grid-m">
+                        <div class="grid__cell grid__cell--margin-right-m-xs gallery__img">
+                            <img src="assets/images/gallery-m.png">
+                        </div>
+                        <div class="grid__cell gallery__img">
+                            <img src="assets/images/gallery-m2.png">
+                        </div>
+                    </div>
+                    <div class="gallery__btn-container">
+                        <button class="btn btn--center btn--blue">View more</button>
+                    </div>
+                </div>
             </section>
-            <form>
-                <h2>Subscribe to us</h2>
-                <p>Dolor sir amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                
-                <label for="sub-email">Your email address</label>
-                <input type="email" id="sub-email" placeholder="Your email address">
-                <button type="submit">Subscribe</button>
-            </form>
-            <section>
-                <h2>Blog</h2>
-                <p>Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullarco laboric nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
-                
-                <!-- news -->
-                <article>
-                    <h3>Green Smoothies: To Much of a Good Thing?</h3>
-                    <p>By Auskteez - 2 hours ago</p>
-                    <time datetime="2016-11-20T19:00">20 Nov</time>
-                </article>
-                <article>
-                    <h3>Growing Food and a "Thirst" for Innovation</h3>
-                    <p>By Auskteez - 3 hours ago</p>
-                    <time datetime="2016-11-14T19:00">14 Nov</time>
-                </article>
-                <article>
-                    <h3>Pesticides &amp; Food: What You Need to Know</h3>
-                    <p>By Auskteez - 2 hours ago</p>
-                    <time datetime="2016-11-10T19:00">10 Nov</time>
-                </article>
-                
-                <button>View more</button>
-            </section>
-            <section>
-                <h2>Contact</h2>
-                <p>For new projects, ideas, business or anything you'd like to discuss contact with me!</p>
-                
-                <div>
-                    <form>
-                        <h3>Contact form</h3>
-                        <label for="msg-name">Your name</label>
-                        <input type="text" id="msg-name" placeholder="Your name...">
-                        <label for="msg-email">Your email</label>
-                        <input type="email" id="msg-email" placeholder="Your email...">
-                        <label for="msg-phone">Your phone number</label>
-                        <input type="phone" id="msg-phone" placeholder="Your phone number...">
-                        <label for="msg-text">Your message</label>
-                        <textarea id="msg-text" name="message" placeholder="Your massage..." rows="10"></textarea>
+            <section class="subscribe">  
+                <div class="wrapper subscribe__content">
+                    <h2 class="subscribe__heading">Subscribe to us</h2>
+                    <p class="subscribe__text">Dolor sir amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <form class="subscribe__form">
+                        <label class="subscribe__form__label" for="sub-email">Your email address</label>
+                        <input class="subscribe__form__input" type="email" id="sub-email" placeholder="Your email address">
+                        <button type="submit" class="btn btn--green">Subscribe</button>
                     </form>
                 </div>
-                <div>
-                    <address>
-                        <strong>Adress</strong>
-                        <p>123 City name, Street, City,Country</p>
-                        <strong>Email</strong>
-                        <p>cahee@domain.com</p>
-                        <strong>Phone</strong>
-                        <p>+012 345 6789</p>
-                    </address>
+            </section>
+            <section>
+                <div class="wrapper">
+                    <h2>Blog</h2>
+                    <p>Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullarco laboric nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+
+                    <!-- news -->
+                    <article>
+                        <h3>Green Smoothies: To Much of a Good Thing?</h3>
+                        <p>By Auskteez - 2 hours ago</p>
+                        <time datetime="2016-11-20T19:00">20 Nov</time>
+                    </article>
+                    <article>
+                        <h3>Growing Food and a "Thirst" for Innovation</h3>
+                        <p>By Auskteez - 3 hours ago</p>
+                        <time datetime="2016-11-14T19:00">14 Nov</time>
+                    </article>
+                    <article>
+                        <h3>Pesticides &amp; Food: What You Need to Know</h3>
+                        <p>By Auskteez - 2 hours ago</p>
+                        <time datetime="2016-11-10T19:00">10 Nov</time>
+                    </article>
+
+                    <button class="btn btn--center btn--red">View more</button>
+                </div>
+            </section>
+            <section>
+                <div class="wrapper">
+                    <h2>Contact</h2>
+                    <p>For new projects, ideas, business or anything you'd like to discuss contact with me!</p>
+
+                    <div>
+                        <form>
+                            <h3>Contact form</h3>
+                            <label for="msg-name">Your name</label>
+                            <input type="text" id="msg-name" placeholder="Your name...">
+                            <label for="msg-email">Your email</label>
+                            <input type="email" id="msg-email" placeholder="Your email...">
+                            <label for="msg-phone">Your phone number</label>
+                            <input type="phone" id="msg-phone" placeholder="Your phone number...">
+                            <label for="msg-text">Your message</label>
+                            <textarea id="msg-text" name="message" placeholder="Your massage..." rows="10"></textarea>
+                        </form>
+                    </div>
+                    <div>
+                        <address>
+                            <strong>Adress</strong>
+                            <p>123 City name, Street, City,Country</p>
+                            <strong>Email</strong>
+                            <p>cahee@domain.com</p>
+                            <strong>Phone</strong>
+                            <p>+012 345 6789</p>
+                        </address>
+                    </div>
                 </div>
             </section>
         </main>
-        <footer class="wrapper">
-            <p>&copy; 2015 Company. All rights reserved.</p>
-            <!-- logo -->
-            <p>Made with <span>love</span> by Auskteez</p>
+        <footer>
+            <div class="wrapper">
+                <p>&copy; 2015 Company. All rights reserved.</p>
+                <!-- logo -->
+                <p>Made with <span>love</span> by Auskteez</p>
+            </div>
         </footer>
         <script src="/temp/scripts/App.js"></script>
     </body>

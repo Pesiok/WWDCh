@@ -1,0 +1,54 @@
+.about {
+    background-color: rgb(0, 178, 178);
+    
+    &__img {
+        max-width: 45em;
+        margin: 0 auto;
+        
+        @mixin atMedium {
+            max-width: none;
+            
+        }
+        img {
+            width: 100%;
+        }
+        
+    }
+    
+    &__content {
+        text-align: center;
+        color: rgb(255, 255, 255);
+            
+        @mixin atMedium {
+            text-align: left;
+        }
+        
+        padding: 4em 0;
+    }
+    
+    &__heading {
+        font-family: 'Raleway-Bold';
+        text-transform: capitalize;
+        font-size: 4rem;
+        margin: 0;
+    
+        @mixin atSmall {
+            font-size: 6rem;
+        }
+    
+        @mixin atLarge {
+            font-size: 8rem;
+            margin-bottom: 0.1em;
+        }
+    }
+    
+    &__text {
+        font-family: 'Raleway-Light';
+        font-size: 1.6rem;
+
+        @mixin atSmall {
+            line-height: 1.6em;
+        }
+    }
+    
+}

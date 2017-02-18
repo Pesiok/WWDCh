@@ -2,12 +2,13 @@
     width: 100%;
     position: absolute;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 1.6rem;
+    text-transform: uppercase;
     transition: opacity 0.3s ease-in-out;
     pointer-events: none;
     opacity: 0;
     
-    @mixin atMedium {
+    @mixin atLarge {
         opacity: 1;
         pointer-events: auto;
         width: auto;
@@ -16,6 +17,7 @@
     
     &--is-expanded {
         opacity: 1;
+        background-color: rgba(255, 255, 255, 0.9);
         pointer-events: auto;
     }
     
@@ -24,19 +26,19 @@
         margin-top: 5em;
         padding: 0;
         
-        @mixin atMedium {
+        @mixin atLarge {
             display: flex;
+            justify-content: space-between;
             margin-top: 3em;
         }
     }
     
     li {
-        display: inline-block;
-        width: 100%;
+        display: block;
         list-style: none;
         text-align: center;
         font-size: 1.5rem;
-        margin-bottom: 1em;
+        margin-bottom: 2em;
     }
     
     a {

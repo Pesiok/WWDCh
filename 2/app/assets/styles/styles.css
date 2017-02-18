@@ -6,5 +6,11 @@
 @import "modules/_wrapper";
 @import "modules/_page-header";
 @import "modules/_page-navigation";
-@import "modules/_page-section";
 @import "modules/_grid";
+@import "modules/_btn";
+@import "modules/_landing";
+@import "modules/_about";
+@import "modules/_services";
+@import "modules/_sprite";
+@import "modules/_gallery";
+@import "modules/_subscribe";
