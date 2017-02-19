@@ -1,9 +1,19 @@
 $mainBlack: rgb(38, 38, 38);
+
 $mainOrange: rgb(255, 96, 51);
 $darkOrange: rgb(216, 71, 30);
+
 $mainBlue: rgb(85, 133, 162);
 $darkBlue: rgb(58, 98, 123);
+
 $mainGreen: rgb(150, 185, 44);
 $darkGreen: rgb(117, 145, 29);
+
 $mainRed: rgb(247, 43, 59);
 $darkRed: rgb(211, 16, 32);
+
+$mainYellow: rgb(255, 233, 47);
+
+$mainCyan: rgb(0, 178, 178);
+
+$mainViolet: rgb(176, 124, 247);

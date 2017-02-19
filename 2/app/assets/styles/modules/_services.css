@@ -8,7 +8,7 @@
         
     }
     
-    &__heading {
+    &__header {
         background-image: url(../../assets/images/our-services.png);
         background-repeat: no-repeat;
         background-size: 70%;
@@ -27,8 +27,8 @@
         
         
         &__content {
-            font-family: 'Raleway-Bold';
-            text-transform: capitalize;
+            @mixin headingNormal;
+            
             font-size: 4.8rem;
             text-align: center;
             
@@ -84,7 +84,7 @@
         &__item {
             list-style: none;
             background-color: rgb(255, 255, 255);
-            box-shadow: 3px 5px 12px -4px rgba(0,0,0,0.75);
+            @mixin boxShadow;
             transition: background-color 0.3s cubic-bezier(.15, .07, 0, 1.03);
             
             font-family: 'Raleway-Bold';
@@ -108,7 +108,7 @@
             position: relative;
             top: -3px;
             left: -1px;
-            background-color: rgb(253, 124, 55);
+            background-color: $mainOrange;
             
         }
        

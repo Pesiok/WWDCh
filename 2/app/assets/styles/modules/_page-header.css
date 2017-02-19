@@ -42,7 +42,7 @@
         }
         
         &__label {
-            @mixin visuallyhidden;
+            @mixin visuallyHidden;
         }
         
         &::before, &__middle, &::after {

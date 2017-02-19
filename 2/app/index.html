@@ -12,7 +12,7 @@
         <header class="page-header">
             <div class="wrapper grid">
                 <div class="page-header__content grid__cell">
-                    <h1 class="page-header__logo">Cakee</h1>
+                    <h1 class="page-header__logo">Cahee</h1>
                     <button class="page-header__menu-icon" aria-expanded="false">
                         <span class="page-header__menu-icon__label">Open/Close Menu</span>
                         <div class="page-header__menu-icon__middle" aria-hidden="true"></div>
@@ -54,9 +54,9 @@
             </section>
             <section class="services">
                 <div class="wrapper services__content grid-m grid--reverse grid--center">
-                    <div class="grid__cell services__heading">
-                        <h2 class="services__heading__content">Our services</h2>
-                    </div>
+                    <header class="grid__cell services__header">
+                        <h2 class="services__header__content">Our services</h2>
+                    </header>
                     <div class="services__list grid__cell grid__cell--margin-right-m-s">
                         <ul>
                             <li class="services__list__item grid grid--center">
@@ -97,10 +97,8 @@
             </section>
             <section class="gallery">
                 <div class="wrapper gallery__content">
-                    <div >
-                        <h2 class="gallery__heading">Gallery</h2>
-                        <p class="gallery__text">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                    </div>
+                    <h2 class="gallery__heading">Gallery</h2>
+                    <p class="gallery__text">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
                     <div class="gallery__row grid-m">
                         <div class="grid__cell-gallery-l grid__cell--margin-right-m-xs gallery__img">
                             <img src="assets/images/gallery-l.png">
@@ -131,34 +129,38 @@
                 <div class="wrapper subscribe__content">
                     <h2 class="subscribe__heading">Subscribe to us</h2>
                     <p class="subscribe__text">Dolor sir amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <form class="subscribe__form">
-                        <label class="subscribe__form__label" for="sub-email">Your email address</label>
-                        <input class="subscribe__form__input" type="email" id="sub-email" placeholder="Your email address">
-                        <button type="submit" class="btn btn--green">Subscribe</button>
+                    <form class="subscribe__form grid-m">
+                        <div class="grid__cell grid__cell--margin-right-m-xs">
+                            <label class="subscribe__form__label" for="sub-email">Your email address</label>
+                            <input type="email" class="subscribe__form__input" id="sub-email" placeholder="Your email address">
+                        </div>
+                        <div class="subscribe__form__btn grid__cell">
+                            <button type="submit" class="btn btn--center-s btn--green">Subscribe</button>
+                        </div>
                     </form>
                 </div>
             </section>
-            <section>
-                <div class="wrapper">
-                    <h2>Blog</h2>
-                    <p>Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullarco laboric nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
-
-                    <!-- news -->
-                    <article>
-                        <h3>Green Smoothies: To Much of a Good Thing?</h3>
-                        <p>By Auskteez - 2 hours ago</p>
-                        <time datetime="2016-11-20T19:00">20 Nov</time>
-                    </article>
-                    <article>
-                        <h3>Growing Food and a "Thirst" for Innovation</h3>
-                        <p>By Auskteez - 3 hours ago</p>
-                        <time datetime="2016-11-14T19:00">14 Nov</time>
-                    </article>
-                    <article>
-                        <h3>Pesticides &amp; Food: What You Need to Know</h3>
-                        <p>By Auskteez - 2 hours ago</p>
-                        <time datetime="2016-11-10T19:00">10 Nov</time>
-                    </article>
+            <section class="blog">
+                <div class="wrapper blog__content">
+                    <h2 class="blog__heading">Blog</h2>
+                    <p class="blog__text">Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullarco laboric nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+                    <div class="grid-m blog__articles-container">
+                        <article class="blog__article blog__article--1 grid__cell grid__cell--margin-right-m-xs">
+                            <time class="blog__article__time" datetime="2016-11-20T19:00">20 Nov</time>
+                            <h3 class="blog__article__heading">Green Smoothies: To Much of a Good Thing?</h3>
+                            <p class="blog__article__text">By Auskteez - 2 hours ago</p>
+                        </article>
+                        <article class="blog__article blog__article--2 grid__cell grid__cell--margin-right-m-xs">
+                            <time class="blog__article__time" datetime="2016-11-14T19:00">14 Nov</time>
+                            <h3 class="blog__article__heading">Growing Food and a "Thirst" for Innovation</h3>
+                            <p class="blog__article__text">By Auskteez - 3 hours ago</p>
+                        </article>
+                        <article class="blog__article blog__article--3 grid__cell">
+                            <time class="blog__article__time" datetime="2016-11-10T19:00">10 Nov</time>
+                            <h3 class="blog__article__heading">Pesticides &amp; Food: What You Need to Know</h3>
+                            <p class="blog__article__text">By Auskteez - 2 hours ago</p>
+                        </article>
+                    </div>
 
                     <button class="btn btn--center btn--red">View more</button>
                 </div>

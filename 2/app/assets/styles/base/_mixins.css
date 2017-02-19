@@ -1,4 +1,4 @@
-@define-mixin visuallyhidden {
+@define-mixin visuallyHidden {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -8,6 +8,24 @@
     position: absolute;
     width: 1px;
     white-space: nowrap;
+}
+
+@define-mixin headingNormal {
+    font-family: 'Raleway-Bold';
+    text-transform: capitalize;
+}
+
+@define-mixin textNormal {
+    font-family: 'Raleway-Light';
+    font-size: 1.6rem;
+    
+    @mixin atSmall {
+            line-height: 1.6em;
+        }
+}
+
+@define-mixin boxShadow {
+    box-shadow: 3px 5px 12px -4px rgba(0,0,0,0.75);
 }
 
 @define-mixin atSmall {

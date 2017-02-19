@@ -1,5 +1,5 @@
 .gallery {
-    background-color: rgb(255, 233, 47);
+    background-color: $mainYellow;
     
     &__content {
        padding-bottom: 10em;
@@ -13,7 +13,7 @@
     }
     
     &__img {
-        box-shadow: 3px 5px 12px -4px rgba(0,0,0,0.75);
+        @mixin boxShadow;
         
         margin-bottom: 2em;
         
@@ -29,10 +29,14 @@
     }
     
     &__heading {
-        font-family: 'Raleway-Bold';
-        text-transform: capitalize;
+        @mixin headingNormal;
+        
         text-align: center;
         font-size: 4rem;
+        
+        margin: 0;
+        padding-top: 1em;
+        padding-bottom: 0.2em;
         
         @mixin atSmall {
             font-size: 6rem;
@@ -43,22 +47,15 @@
             margin-bottom: 0.1em;
         }
         
-        margin: 0;
-        padding-top: 1em;
-        padding-bottom: 0.2em;
         
     }
     
     &__text {
         display: block;
-        font-family: 'Raleway-Light';
+        
+        @mixin textNormal;
         text-align: center;
-        font-size: 1.6rem;
-        
-        @mixin atSmall {
-            line-height: 1.6em;
-        }
-        
+       
         max-width: 36em;
         margin: 0 auto;
         margin-bottom: 4em;

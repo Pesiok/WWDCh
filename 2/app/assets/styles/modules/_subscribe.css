@@ -1,26 +1,47 @@
 .subscribe {
-    background-image: url(../../assets/images/subscribe.png);
-    background-size: cover;
+    background-image: url(../../assets/images/subscribe-2.png);
+    background-repeat: no-repeat;
+    background-position: 50% 110%;
+    
+    @mixin atMedium {
+        background-image: url(../../assets/images/subscribe.png);
+        background-position: 50%;
+    }
     
     &__content {
         padding: 10em 0;
+        height: 62em;
+        
+        @mixin atMedium {
+            max-height: 50em;
+        }
     }
     
     &__form {
         
         &__label {
-            @mixin visuallyhidden;
+            @mixin visuallyHidden;
         }
         
         &__input {
-            width: 48em;
+            font-size: 1.5rem;
+            width: 100%;
+            padding: 1em 1.4em;
+            border: 1px solid $mainBlack;
+        }
+        
+        &__btn {
+            margin-top: 2em;
+            @mixin atMedium {
+                margin-top: 0;
+            }
         }
         
     }
     
     &__heading {
-        font-family: 'Raleway-Bold';
-        text-transform: capitalize;
+        @mixin headingNormal;
+        
         font-size: 3.5rem;
         text-align: center;
         
@@ -34,13 +55,10 @@
     
     }
     &__text {
-        font-family: 'Raleway-Light';
-        font-size: 1.6rem;
+        @mixin textNormal;
+        
         text-align: center;
         max-width: 35em;
-        @mixin atSmall {
-            line-height: 1.6em;
-        }
         
         @mixin atMedium {
             text-align: left;

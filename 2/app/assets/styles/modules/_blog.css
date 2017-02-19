@@ -1,0 +1,93 @@
+.blog {
+    background-color: $mainViolet;
+    
+    &__content {
+        color: rgb(255, 255, 255);
+    }
+    
+    &__heading {
+        @mixin headingNormal;
+        
+        text-align: center;
+        font-size: 4rem;
+        
+        margin: 0;
+        padding-top: 1em;
+        padding-bottom: 0.2em;
+    
+        @mixin atSmall {
+            font-size: 6rem;
+        }
+    
+        @mixin atLarge {
+            font-size: 8rem;
+            margin-bottom: 0.1em;
+        }
+
+    }
+    
+    &__text {
+        display: block;
+        
+        @mixin textNormal;
+        text-align: center;
+       
+        max-width: 36em;
+        margin: 0 auto;
+        margin-bottom: 4em;
+    }
+    
+    &__articles-container {
+        /*margin: 0 auto;*/
+    }
+    
+    &__article {
+        height: 310px;
+        width: 100%;
+        @mixin boxShadow;
+        
+        position: relative;
+    
+        &--1 {
+            background-image: url(../../assets/images/blog-1.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+        
+        &--2 {
+            background-image: url(../../assets/images/blog-2.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        &--3 {
+            background-image: url(../../assets/images/blog-3.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        &__time {
+            display: block;
+            font-family: 'Raleway-ExtraBold';
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            text-align: center;
+            
+            width: 2.3em;
+            border-radius: 10%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        &__heading {
+            @mixin headingNormal;
+            font-size: 2rem;
+        }
+        
+        &__text {
+            @mixin textNormal;
+            font-size: 1.3rem;
+        }
+        
+    }
+}

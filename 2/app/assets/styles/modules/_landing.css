@@ -9,11 +9,12 @@
     }
     
     &__content {
-        height: 67em;
+        height: 100vh;
         
-        @mixin atSmall {
+        /* @mixin atSmall {
             height: 100em;
         }
+        */
     }
         
     &__heading {
@@ -30,14 +31,13 @@
     }
 
     &__text {
-        font-family: 'Raleway-Light';
-        font-size: 1.6rem;
+        @mixin textNormal;
+        
         text-align: center;
         margin-bottom: 1.5em;
             
         @mixin atSmall {
             text-align: left;
-            line-height: 1.6em;
         }
     }
 
