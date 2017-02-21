@@ -2,7 +2,7 @@ class MobileMenu {
     
     constructor() {
         this.pageNavigation = document.querySelector(".page-navigation");
-        this.menuIcon = document.querySelector(".page-header__menu-icon");
+        this.menuIcon = document.querySelector(".menu-icon");
         this.events();
     }
     
@@ -14,7 +14,7 @@ class MobileMenu {
         
         // CSS Classes
         this.pageNavigation.classList.toggle("page-navigation--is-expanded");
-        this.menuIcon.classList.toggle("page-header__menu-icon--close-x");
+        this.menuIcon.classList.toggle("menu-icon--close-x");
         
         // Aria atributes
         if (this.menuIcon.getAttribute("aria-expanded") == "false") {

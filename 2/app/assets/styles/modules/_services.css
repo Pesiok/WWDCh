@@ -3,9 +3,7 @@
     
     &__content {
         padding: 5em 0;
-        
-        
-        
+         
     }
     
     &__header {
@@ -25,101 +23,49 @@
             background-size: 70%;
         }
         
-        
-        &__content {
-            @mixin headingNormal;
-            
-            font-size: 4.8rem;
-            text-align: center;
-            
-            @mixin atSmall {
-                font-size: 6rem;
-            }
-            
-            @mixin atMedium {
-                font-size: 5.2rem;
-            }
+    }
+    
+    &__heading {
+        @mixin headingNormal;
 
-            @mixin atLarge {
-                font-size: 6.5rem;
-                text-align: left;
-            }
-            
-            @mixin atExtraLarge {
-                font-size: 8rem;
-            }
-            
-            margin-top: 0;
-            padding-top: 2.4em;
-            
-            @mixin atSmall {
-                 padding-top: 2.8em;
-            }
-            
-            @mixin atMedium {    
-                padding-top: 3.4em;
-            }
-            
-            @mixin atLarge {
-                 padding-top: 2.8em;
-            }
-            
-            @mixin atExtraLarge {
-                 padding-top: 2.4em;
-            }
+        font-size: 4.8rem;
+        text-align: center;
+
+        @mixin atSmall {
+            font-size: 6rem;
         }
-    }
-    
-    &__list {
-        
+
+        @mixin atMedium {
+            font-size: 5.2rem;
+        }
+
+        @mixin atLarge {
+            font-size: 6.5rem;
+            text-align: left;
+        }
+
         @mixin atExtraLarge {
-            margin-left: 5em;
+            font-size: 8rem;
         }
-        
-        ul {
-           padding: 0;
+
+        margin-top: 0;
+        padding-top: 2.4em;
+
+        @mixin atSmall {
+             padding-top: 2.8em;
         }
-        
-        
-        &__item {
-            list-style: none;
-            background-color: rgb(255, 255, 255);
-            @mixin boxShadow;
-            transition: background-color 0.3s cubic-bezier(.15, .07, 0, 1.03);
-            
-            font-family: 'Raleway-Bold';
-            color: $mainBlack;
-            font-size: 1.8rem;
-            text-align: center;
-            
-            height: 4em;
-            max-width: 17em;
-            margin: 1em auto;
-            
-            @mixin atMedium {
-                height: 5em;
-                max-width: 20em;
-                margin-bottom: 1.8em;
-            }
-            
+
+        @mixin atMedium {    
+            padding-top: 3.4em;
         }
-        
-        &__item:hover {
-            position: relative;
-            top: -3px;
-            left: -1px;
-            background-color: $mainOrange;
-            
+
+        @mixin atLarge {
+             padding-top: 2.8em;
         }
-       
-        &__icon {
-            border-left: 1px solid $mainBlack;
-            height: 100%;
-    
-            span {
-                margin: 0 auto;
-            }
-            
+
+        @mixin atExtraLarge {
+             padding-top: 2.4em;
         }
     }
+    
 }

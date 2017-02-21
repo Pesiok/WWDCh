@@ -1,10 +1,13 @@
-.blog {
-    background-color: $mainViolet;
+.contact {
+    background-image: url(../../assets/images/contact.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     
     &__content {
-        color: rgb(255, 255, 255);
         padding-bottom: 10em;
+        
     }
+    
     
     &__heading {
         @mixin headingNormal;
@@ -32,11 +35,10 @@
         
         @mixin textNormal;
         text-align: center;
-       
-        max-width: 36em;
+        
+        max-width: 22em;
         margin: 0 auto;
-        margin-bottom: 4em;
+        margin-bottom: 3em;
     }
-    
     
 }

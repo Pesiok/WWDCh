@@ -17,7 +17,7 @@
 
 @define-mixin textNormal {
     font-family: 'Raleway-Light';
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     
     @mixin atSmall {
             line-height: 1.6em;
@@ -28,26 +28,30 @@
     box-shadow: 3px 5px 12px -4px rgba(0,0,0,0.75);
 }
 
+@define-mixin boxShadowInset {
+    box-shadow: inset 0px -127px 143px -29px rgba(0,0,0,0.75);
+}
+
 @define-mixin atSmall {
-    @media (min-width: 440px) {
+    @media (min-width: 27.5em) {
         @mixin-content;
     }
 }
 
 @define-mixin atMedium {
-    @media (min-width:800px) {
+    @media (min-width: 48em) {
         @mixin-content;
     }
 }
 
 @define-mixin atLarge {
-    @media (min-width:1030px) {
+    @media (min-width: 64.375em) {
         @mixin-content;
     }
 }
 
 @define-mixin atExtraLarge {
-    @media (min-width:1300px) {
+    @media (min-width: 81.25em) {
         @mixin-content;
     }
 }

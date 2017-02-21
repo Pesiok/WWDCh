@@ -1,6 +1,14 @@
 .grid {
     display: flex;
     
+    &-s {
+        display: block;
+        
+        @mixin atSmall {
+            display: flex;
+        }
+    }
+    
     &-m {
         display: block;
         
@@ -36,6 +44,8 @@
             flex: 0.67273;
         }
         
+        /* margin-direction-atMediaquery-size*/
+        
         &--margin-right-m-xs {
             @mixin atMedium {
                 margin-right: 2.7%;
@@ -45,6 +55,12 @@
         &--margin-right-m-s {
             @mixin atMedium {
                 margin-right: 7%;
+            }
+        }
+        
+        &--margin-right-m-m {
+            @mixin atMedium {
+                margin-right: 14%;
             }
         }
         

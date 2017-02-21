@@ -1,0 +1,32 @@
+.contact-form {
+    
+    &__heading {
+        @mixin visuallyHidden;
+    }
+    
+    &__label {
+        @mixin visuallyHidden;
+    }
+    
+    &__input {
+        display: block;
+        
+        background-color: $transparentCyan; 
+        
+        font-family: 'Raleway-Light';
+        font-size: 1.5rem;
+        color: rgb(255, 255, 255);
+        
+        width: 100%;
+        padding: 1em 1.4em;
+        margin-bottom: 1em;
+        
+        border: none;
+        resize: none;
+        
+    }
+    
+    &__input::placeholder {
+        color: rgb(255, 255, 255);
+    }
+}

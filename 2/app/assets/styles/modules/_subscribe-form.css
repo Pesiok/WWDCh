@@ -1,0 +1,22 @@
+.subscribe-form {
+        
+    &__label {
+        @mixin visuallyHidden;
+    }
+
+    &__input {
+        font-size: 1.5rem;
+        width: 100%;
+        padding: 1em 1.4em;
+        border: 1px solid $mainBlack;
+    }
+
+    &__btn {
+        margin-top: 2em;
+        @mixin atMedium {
+            margin-top: 0;
+        }
+    }
+        
+    
+}

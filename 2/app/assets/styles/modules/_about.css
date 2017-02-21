@@ -44,6 +44,10 @@
     
     &__text {
         @mixin textNormal;
+        max-width: 36em;
+        
+        margin: 0 auto;
+        margin-bottom: 1em;
     }
     
 }

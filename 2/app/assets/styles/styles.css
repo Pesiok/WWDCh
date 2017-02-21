@@ -4,6 +4,7 @@
 @import "base/_mixins";
 @import "base/_global";
 @import "modules/_wrapper";
+@import "modules/_menu-icon";
 @import "modules/_page-header";
 @import "modules/_page-navigation";
 @import "modules/_grid";
@@ -11,7 +12,14 @@
 @import "modules/_landing";
 @import "modules/_about";
 @import "modules/_services";
+@import "modules/_services-list";
 @import "modules/_sprite";
 @import "modules/_gallery";
 @import "modules/_subscribe";
+@import "modules/_subscribe-form";
 @import "modules/_blog";
+@import "modules/_blog-article";
+@import "modules/_contact";
+@import "modules/_contact-form";
+@import "modules/_contact-address";
+@import "modules/_page-footer";

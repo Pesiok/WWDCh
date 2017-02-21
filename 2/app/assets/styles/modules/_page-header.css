@@ -3,7 +3,7 @@
     position: absolute;
     margin-top: -1.2em;
     
-    @mixin atSmall {
+    @mixin atLarge {
         margin-top: 1.2em;
     }
     
@@ -26,69 +26,4 @@
         }
     }
     
-    &__menu-icon {
-        position: relative;
-        z-index: 2;
-        top: 3em;
-        height: 1.6em;
-        width: 2.1em;
-        background: transparent;
-        border: none;
-        outline-color: $mainOrange;
-        cursor: pointer;
-        
-        @mixin atLarge {
-            display: none;
-        }
-        
-        &__label {
-            @mixin visuallyHidden;
-        }
-        
-        &::before, &__middle, &::after {
-            position: absolute;
-            width: 100%;
-            height: 0.2em;
-            background-color: $mainBlack;
-        }
-        
-         &::before {
-            content: "";
-            top: 0;
-            left: 0;
-            transition: transform .3s ease-out;
-            transform-origin: left center;
-        }
-        
-        &__middle {
-            top: 0.7em;
-            left: 0;
-            transition: all .3s ease-out;
-            transform-origin: 0 50%;
-        }
-        
-        &::after {
-            content: "";
-            bottom: 0;
-            left: 0;
-            transition: transform .3s ease-out;
-            transform-origin: left center;
-        }
-    }
-    
-    &__menu-icon--close-x {
-        
-        &::before {
-            transform: rotate(33deg) scaleX(1.24);
-        }
-        
-        .page-header__menu-icon__middle {
-            width: 0%;
-            opacity: 0;
-        }
-        
-        &::after {
-            transform: rotate(-33deg) scaleX(1.24);
-        }
-    }
 }

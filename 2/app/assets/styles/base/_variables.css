@@ -1,5 +1,7 @@
 $mainBlack: rgb(38, 38, 38);
 
+$mainGray: rgb(185, 185, 185);
+
 $mainOrange: rgb(255, 96, 51);
 $darkOrange: rgb(216, 71, 30);
 
@@ -15,5 +17,8 @@ $darkRed: rgb(211, 16, 32);
 $mainYellow: rgb(255, 233, 47);
 
 $mainCyan: rgb(0, 178, 178);
+$transparentCyan: rgba(0, 178, 178, 0.5);
 
 $mainViolet: rgb(176, 124, 247);
+
+$mainPink: rgb(255, 43, 88);

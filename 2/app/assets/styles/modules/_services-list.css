@@ -1,0 +1,52 @@
+.services-list {
+        
+    @mixin atExtraLarge {
+        margin-left: 5em;
+    }
+
+    ul {
+       padding: 0;
+    }
+
+
+    &__item {
+        list-style: none;
+        background-color: rgb(255, 255, 255);
+        @mixin boxShadow;
+        transition: background-color 0.3s cubic-bezier(.15, .07, 0, 1.03);
+
+        font-family: 'Raleway-Bold';
+        color: $mainBlack;
+        font-size: 1.8rem;
+        text-align: center;
+
+        height: 4em;
+        max-width: 17em;
+        margin: 1em auto;
+
+        @mixin atMedium {
+            height: 5em;
+            max-width: 20em;
+            margin-bottom: 1.8em;
+        }
+
+    }
+
+    &__item:hover {
+        position: relative;
+        top: -3px;
+        left: -1px;
+        background-color: $mainOrange;
+
+    }
+
+    &__icon {
+        border-left: 1px solid $mainBlack;
+        height: 100%;
+
+        span {
+            margin: 0 auto;
+        }
+
+    }
+}

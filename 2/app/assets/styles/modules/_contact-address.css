@@ -1,0 +1,45 @@
+.contact-address {
+    font-style: normal;
+    
+    width: 100%;
+    margin-top: 10em;
+    
+    @mixin atMedium {
+        margin: 0 auto;
+    }
+    
+    &__type {
+        font-family: 'Raleway-Bold';
+        font-size: 1.7rem;
+        text-transform: uppercase;
+        color: $mainCyan;
+        
+        @mixin atMedium {
+            color: rgb(0, 0, 0);
+        }
+        
+        text-align: center;
+        
+        margin-bottom: 1em;
+        
+        @mixin atMedium {
+            text-align: left;
+            margin-bottom: 0.2em;
+        }
+        
+    }
+    
+    &__info {
+        font-family: 'Raleway-Light';
+        font-size: 1.8rem;
+        
+        
+        color: rgb(255, 255, 255);
+        @mixin atMedium {
+            color: rgb(0, 0, 0);
+        }
+        
+        margin-left: 0;
+        margin-bottom: 1em;
+    }
+}
