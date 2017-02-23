@@ -1,14 +1,20 @@
 .page-navigation {
-    width: 100%;
     position: absolute;
+    width: 100%;
+    top: 0;
     left: 0;
+    
     font-size: 1.6rem;
     text-transform: uppercase;
-    transition: opacity 0.3s ease-in-out;
     pointer-events: none;
+    
     opacity: 0;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.2);
+    background-color: rgba(255, 255, 255, 0); 
     
     @mixin atLarge {
+        transform: scale(1);
         opacity: 1;
         pointer-events: auto;
         width: auto;
@@ -17,37 +23,50 @@
     
     &--is-expanded {
         opacity: 1;
-        background-color: rgba(255, 255, 255, 0.9);
+        transform: scale(1);
         pointer-events: auto;
+        background-color: rgba(255, 255, 255, 0.9);
     }
     
-    ul {
+    &__container {
         margin: 0;
-        margin-top: 5em;
-        padding: 0;
+        padding-left: 0;
+        
+        padding-top: 6em;
         
         @mixin atLarge {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 3em;
+            padding-top: 0;
         }
     }
     
-    li {
+    &__item {
         display: block;
         list-style: none;
         text-align: center;
-        font-size: 1.5rem;
-        margin-bottom: 2em;
+        font-size: 1.6rem;
+        
+        margin-bottom: 2.2em;
+        
+        @mixin atLarge {
+            margin-bottom: 0;
+            font-size: 1.6rem;
+        }
+        
+        @mixin atExtraLarge {
+            font-size: 1.8rem;
+        }
+        
+        a {
+            padding-top: 0.25em;
+            font-family: 'Raleway-Bold';
+            text-decoration: none;
+            color: $mainBlack;
+            outline-color: $mainOrange;
+            
+        }
+        a:hover, a:focus {
+          border-top: 3px solid $mainOrange;  
+        }
     }
     
-    a {
-        font-family: 'Raleway-Bold';
-        text-decoration: none;
-        color: $mainBlack;
-        outline-color: $mainOrange;       
-    }
-    a:hover, a:focus {
-        border-top: solid $mainOrange;
-    }
 }

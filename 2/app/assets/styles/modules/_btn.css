@@ -24,14 +24,14 @@
     }
     
     &--center,
-    &--center-s {
+    &--center-xs {
         display: block;
         margin: 0 auto;
     }
     
-    &--center-s {
+    &--center-xs {
         width: 11em;
-        @mixin atMedium {
+        @mixin atSmall {
             display: inline-block;
             width: auto;
         }

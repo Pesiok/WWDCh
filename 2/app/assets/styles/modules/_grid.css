@@ -17,8 +17,17 @@
         }
     }
     
+    &-l {
+        display: block;
+        
+        @mixin atLarge {
+            display: flex;
+        }
+    }
+    
     &--center {
         align-items: center;
+        justify-content: space-between;
     }
     
     &--reverse {
@@ -45,7 +54,7 @@
         }
         
         /* margin-direction-atMediaquery-size*/
-        
+         
         &--margin-right-m-xs {
             @mixin atMedium {
                 margin-right: 2.7%;

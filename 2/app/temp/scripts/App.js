@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -128,13 +128,70 @@ exports.default = MobileMenu;
 "use strict";
 
 
-var _Menu = __webpack_require__(0);
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-var _Menu2 = _interopRequireDefault(_Menu);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var StickyHeader = function () {
+    function StickyHeader() {
+        _classCallCheck(this, StickyHeader);
+
+        this.pageHeader = document.querySelector(".page-header");
+        this.events();
+    }
+
+    _createClass(StickyHeader, [{
+        key: "events",
+        value: function events() {
+            var _this = this;
+
+            window.addEventListener("scroll", function () {
+                return _this.toggleShrink();
+            });
+        }
+    }, {
+        key: "toggleShrink",
+        value: function toggleShrink() {
+            var headerHeight = this.pageHeader.clientHeight;
+            console.log("headerHeight: ", headerHeight);
+            console.log("window.scrollY: ", window.scrollY);
+
+            if (window.scrollY >= headerHeight) {
+                this.pageHeader.classList.add('page-header--scrolled');
+            } else {
+                this.pageHeader.classList.remove('page-header--scrolled');
+            }
+        }
+    }]);
+
+    return StickyHeader;
+}();
+
+exports.default = StickyHeader;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _MobileMenu = __webpack_require__(0);
+
+var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
+
+var _StickyHeader = __webpack_require__(1);
+
+var _StickyHeader2 = _interopRequireDefault(_StickyHeader);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mobileMenu = new _Menu2.default();
+var mobileMenu = new _MobileMenu2.default();
+var stickyHeader = new _StickyHeader2.default();
 
 /***/ })
 /******/ ]);

@@ -15,7 +15,7 @@
         color: $mainCyan;
         
         @mixin atMedium {
-            color: rgb(0, 0, 0);
+            color: $mainBlack;
         }
         
         text-align: center;
@@ -36,7 +36,7 @@
         
         color: rgb(255, 255, 255);
         @mixin atMedium {
-            color: rgb(0, 0, 0);
+            color: $mainBlack;
         }
         
         margin-left: 0;

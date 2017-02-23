@@ -1,17 +1,20 @@
 .menu-icon {
         position: relative;
-        z-index: 2;
-        top: 3em;
-        height: 1.6em;
-        width: 2.1em;
+        display: block;
+        z-index: 99;
+    
+        @mixin atLarge {
+            display: none;
+        }
+    
+        height: 2.3em;
+        width: 2.5em;
+    
         background: transparent;
         border: none;
         outline-color: $mainOrange;
         cursor: pointer;
         
-        @mixin atLarge {
-            display: none;
-        }
         
         &__label {
             @mixin visuallyHidden;
@@ -33,7 +36,7 @@
         }
         
         &__middle {
-            top: 0.7em;
+            top: 1.05em;
             left: 0;
             transition: all .3s ease-out;
             transform-origin: 0 50%;
@@ -51,7 +54,7 @@
 .menu-icon--close-x {
 
     &::before {
-        transform: rotate(33deg) scaleX(1.24);
+        transform: rotate(40deg) scaleX(1.3);
     }
 
     .menu-icon__middle {
@@ -60,6 +63,6 @@
     }
 
     &::after {
-        transform: rotate(-33deg) scaleX(1.24);
+        transform: rotate(-40deg) scaleX(1.3);
     }
 }

@@ -30,7 +30,7 @@
     
     &__heading {
         @mixin headingNormal;
-        
+        color: $mainBlack;
         text-align: center;
         font-size: 4rem;
         
@@ -54,6 +54,7 @@
         display: block;
         
         @mixin textNormal;
+        color: $mainBlack;
         text-align: center;
        
         max-width: 36em;
