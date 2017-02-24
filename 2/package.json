@@ -2,7 +2,8 @@
   "name": "2",
   "version": "1.0.0",
   "dependencies": {
-    "normalize.css": "^5.0.0"
+    "normalize.css": "^5.0.0",
+    "smoothscroll-polyfill": "^0.3.4"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",

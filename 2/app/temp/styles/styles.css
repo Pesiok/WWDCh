@@ -956,7 +956,7 @@ html {
   background-color: rgb(211, 16, 32);
 }
 
-.landing {
+.home{
     background-image: url(../../assets/images/fresh-life.png);
 	background-repeat: no-repeat;
     background-position: 55% 20%;
@@ -965,23 +965,23 @@ html {
 
 @media (min-width: 27.5em) {
 
-  .landing {
+  .home {
     background-size: cover;
   }
 }
 
 @media (min-width: 47.5em) {
 
-  .landing {
+  .home {
     background-position: 70% 20%;
   }
 }
 
-.landing__content {
+.home__content {
   height: 100vh;
 }
 
-.landing__heading {
+.home__heading {
   font-family: 'Raleway-ExtraBold';
   text-align: center;
   margin-bottom: 0;
@@ -991,7 +991,7 @@ html {
 
 @media (min-width: 27.5em) {
 
-  .landing__heading {
+  .home__heading {
     text-align: left;
     font-size: 5rem;
     margin-bottom: 0.1em;
@@ -1000,12 +1000,12 @@ html {
 
 @media (min-width: 63.75em) {
 
-  .landing__heading {
+  .home__heading {
     font-size: 6rem;
   }
 }
 
-.landing__text {
+.home__text {
   font-family: 'Raleway-Light';
   font-size: 1.7rem;
   color: rgb(38, 38, 38);
@@ -1015,14 +1015,14 @@ html {
 
 @media (min-width: 27.5em) {
 
-  .landing__text {
+  .home__text {
     line-height: 1.6em;
   }
 }
 
 @media (min-width: 27.5em) {
 
-  .landing__text {
+  .home__text {
     text-align: left;
     max-width: 18em;
   }
@@ -1030,7 +1030,7 @@ html {
 
 @media (min-width: 63.75em) {
 
-  .landing__text {
+  .home__text {
     max-width: 23em;
   }
 }
