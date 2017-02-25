@@ -65,8 +65,12 @@
             
         }
         a:hover, a:focus {
-          border-top: 3px solid $mainOrange;  
+            border-top: 3px solid $mainOrange;
         }
     }
     
+}
+
+.active-link {
+    border-top: 3px solid $mainOrange;
 }

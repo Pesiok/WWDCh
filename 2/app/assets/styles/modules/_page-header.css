@@ -1,7 +1,7 @@
 .page-header {
     width: 100%;
     position: fixed;
-    
+    z-index: 99;
     padding-top: 1em;
     padding-bottom: 1em;
     
@@ -19,9 +19,9 @@
     
     &__logo {
         display: block;
-        z-index: 99;
         font-family: 'Pacifico';
         color: $mainBlack;
+        z-index: 99;
         
         font-size: 4rem;
         transition: font-size 0.3s ease-in-out;

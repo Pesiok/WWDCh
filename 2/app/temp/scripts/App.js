@@ -143,13 +143,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 _smoothscrollPolyfill2.default.polyfill();
+//import promise from 'es6-promise'
+//promise.polyfill()
+//import "isomorphic-fetch"
 
 var StickyHeader = function () {
     function StickyHeader() {
         _classCallCheck(this, StickyHeader);
 
         this.pageHeader = document.querySelector(".page-header");
-        //this.pageSections = document.querySelectorAll("section");
+        this.pageSections = document.querySelectorAll("section");
         this.menuLinks = document.querySelectorAll(".page-navigation__item a");
         this.events();
     }
@@ -159,39 +162,22 @@ var StickyHeader = function () {
         value: function events() {
             var _this = this;
 
-            // Shrink header
-            window.addEventListener("scroll", this.debounce(this.toggleShrink.bind(this)));
+            window.addEventListener("scroll", function () {
+                // Shrink header
+                _this.highlightLinks();
+                // Highlight navigation links
+                _this.toggleShrink();
+            });
+
             // Scroll to section
             this.menuLinks.forEach(function (link) {
                 return link.addEventListener("click", _this.scrollToSection);
             });
         }
     }, {
-        key: "debounce",
-        value: function debounce(func) {
-            var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 15;
-            var immediate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-            var timeout = void 0;
-            return function () {
-                var context = this,
-                    args = arguments;
-                var later = function later() {
-                    timeout = null;
-                    if (!immediate) func.apply(context, args);
-                };
-                var callNow = immediate && !timeout;
-                clearTimeout(timeout);
-
-                timeout = setTimeout(later, wait);
-                if (callNow) func.apply(context, args);
-            };
-        }
-    }, {
         key: "toggleShrink",
         value: function toggleShrink() {
             var headerHeight = this.pageHeader.clientHeight;
-
             if (window.scrollY >= headerHeight) {
                 this.pageHeader.classList.add('page-header--scrolled');
             } else {
@@ -203,6 +189,22 @@ var StickyHeader = function () {
         value: function scrollToSection() {
             var pageSection = document.querySelector("" + this.hash);
             pageSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, {
+        key: "highlightLinks",
+        value: function highlightLinks() {
+            this.pageSections.forEach(function (pageSection) {
+
+                var isNotScrolledPast = window.scrollY < pageSection.offsetTop + pageSection.offsetHeight;
+                var isShown = pageSection.offsetTop - 1 < window.scrollY;
+                var menuLink = document.querySelector("[href=\"#" + pageSection.id + "\"]");
+
+                if (isShown && isNotScrolledPast) {
+                    menuLink.classList.add('active-link');
+                } else {
+                    menuLink.classList.remove('active-link');
+                }
+            });
         }
     }]);
 

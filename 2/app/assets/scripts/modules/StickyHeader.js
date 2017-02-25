@@ -1,42 +1,34 @@
 import smoothScroll from 'smoothscroll-polyfill'
 smoothScroll.polyfill()
+//import promise from 'es6-promise'
+//promise.polyfill()
+//import "isomorphic-fetch"
 
 class StickyHeader {
     
     constructor() {
         this.pageHeader = document.querySelector(".page-header");
-        //this.pageSections = document.querySelectorAll("section");
+        this.pageSections = document.querySelectorAll("section");
         this.menuLinks = document.querySelectorAll(".page-navigation__item a");
         this.events();
     }
     
     events() {
-        // Shrink header
-        window.addEventListener("scroll", this.debounce(this.toggleShrink.bind(this)));
+       
+        window.addEventListener("scroll", () => {
+            // Shrink header
+           this.highlightLinks();
+            // Highlight navigation links
+           this.toggleShrink();
+        });
+    
         // Scroll to section
         this.menuLinks.forEach( link => link.addEventListener("click", this.scrollToSection));
         
     }
-    
-    debounce(func, wait = 15, immediate = true) {
-      let timeout;
-      return function() {
-        let context = this, args = arguments;
-        let later = function() {
-          timeout = null;
-          if (!immediate) func.apply(context, args);
-        };
-        let callNow = immediate && !timeout;
-        clearTimeout(timeout);
-          
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-      };
-    }
-    
+ 
     toggleShrink() {
         const headerHeight = this.pageHeader.clientHeight;
-        
         if (window.scrollY >= headerHeight ) {
             this.pageHeader.classList.add('page-header--scrolled');
         } else {
@@ -49,7 +41,20 @@ class StickyHeader {
         pageSection.scrollIntoView({ behavior: 'smooth' });
     }
     
-    
+    highlightLinks() {
+        this.pageSections.forEach( pageSection => {
+        
+            const isNotScrolledPast = window.scrollY < (pageSection.offsetTop + pageSection.offsetHeight);
+            const isShown = pageSection.offsetTop - 1 < window.scrollY;
+            const menuLink = document.querySelector(`[href="#${pageSection.id}"]`);
+          
+            if (isShown && isNotScrolledPast){
+                menuLink.classList.add('active-link');
+            } else {
+                menuLink.classList.remove('active-link');
+            }
+        });
+    } 
 }
 
 export default StickyHeader;

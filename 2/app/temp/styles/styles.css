@@ -599,7 +599,7 @@ html {
 .page-header {
     width: 100%;
     position: fixed;
-    
+    z-index: 99;
     padding-top: 1em;
     padding-bottom: 1em;
     
@@ -626,9 +626,9 @@ html {
 
 .page-header__logo {
   display: block;
-  z-index: 99;
   font-family: 'Pacifico';
   color: rgb(38, 38, 38);
+  z-index: 99;
   font-size: 4rem;
   -webkit-transition: font-size 0.3s ease-in-out;
   transition: font-size 0.3s ease-in-out;
@@ -744,6 +744,10 @@ html {
 
 .page-navigation__item a:hover, .page-navigation__item a:focus {
   border-top: 3px solid rgb(255, 96, 51);
+}
+
+.active-link {
+    border-top: 3px solid rgb(255, 96, 51);
 }
 
 .grid {
