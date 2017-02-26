@@ -1,8 +1,5 @@
 import smoothScroll from 'smoothscroll-polyfill'
 smoothScroll.polyfill()
-//import promise from 'es6-promise'
-//promise.polyfill()
-//import "isomorphic-fetch"
 
 class StickyHeader {
     
