@@ -112,8 +112,6 @@ var FetchData = function () {
         key: "fetchBlog",
         value: function fetchBlog() {
 
-            //const recipesContainer = []
-
             var options = {
                 method: 'GET',
                 headers: {
@@ -128,12 +126,24 @@ var FetchData = function () {
                 return "https://community-food2fork.p.mashape.com/get?key=6cd3caec14ca49d62973115215d3d885&rId=" + randomId;
             }
 
-            function displayRecipe(data) {
-                var HTMLTemplate = "\n            <article class=\"blog-article blog-article--3 grid__cell\">\n                <time class=\"blog-article__date\" datetime=\"2016-11-10T19:00\">\n                    10 <span class=\"blog-article__month\">Nov</span>\n                </time>\n                <div class=\"blog-article__content\">\n                    <h3 class=\"blog-article__heading\">Pesticides &amp; Food: What You Need to Know</h3>\n                    <p class=\"blog-article__text\">By Auskteez - 2 hours ago</p>\n                </div>\n            </article>\n            ";
+            function renderContent(jsonData) {
+                var recipe = jsonData.recipe;
+                var output = "\n            <article class=\"blog-article grid__cell\">\n                <a class=\"blog-article__link\" href=\"" + recipe.source_url + "\">\n                    <img class=\"blog-article__img\" src=\"" + recipe.image_url + "\" alt=\"Picture of " + recipe.title + "\">\n                    <time class=\"blog-article__date\" datetime=\"2016-11-10T19:00\">\n                        10 <span class=\"blog-article__month\">Nov</span>\n                    </time>\n                    <div class=\"blog-article__content\">\n                        <h3 class=\"blog-article__heading\">" + recipe.title + "</h3>\n                        <p class=\"blog-article__text\">" + recipe.publisher + " - 2 hours ago</p>\n                    </div>\n                </a>\n            </article>\n            ";
+                //console.log(output)
+                return output;
+            }
 
-                data.forEach(function (element) {
-                    console.log(element.recipe);
-                });
+            function displayContent(html) {
+                console.log(html);
+                var newContainer = document.createElement("div");
+                var blogContainer = document.querySelector("#blog .grid-m");
+
+                newContainer.classList.add("grid-m");
+                newContainer.innerHTML = html;
+                console.log(newContainer.innerHTML);
+                console.log(blogContainer);
+
+                blogContainer.appendChild(newContainer);
             }
 
             // fetch(getEndpoint(), options)
@@ -141,15 +151,21 @@ var FetchData = function () {
             //  .then( data => console.log(data));
 
             Promise.all([fetch(getEndpoint(), options), fetch(getEndpoint(), options), fetch(getEndpoint(), options)]).then(function (responses) {
-                console.log(responses);
+                //console.log(responses);
                 return Promise.all(responses.map(function (response) {
                     return response.json();
                 }));
             }).then(function (data) {
-                return displayRecipe(data);
-            }).catch(function (error) {
-                throw new Error("Something is wrong");
+                return Promise.all(data.map(function (jsonData) {
+                    return renderContent(jsonData);
+                }));
+            }).then(function (content) {
+                content.forEach(function (html) {
+                    return displayContent(html);
+                });
             });
+            //.catch(error => {throw new Error("Something is wrong")});
+
         }
     }]);
 
