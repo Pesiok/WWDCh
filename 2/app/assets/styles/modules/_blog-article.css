@@ -9,11 +9,7 @@
     
     overflow: hidden;
     
-    margin-bottom: 2.5em;
-    
-    @mixin atMedium {
-        margin-bottom: 5em;
-    }
+    margin-bottom: 2.2em;
     
     @mixin boxShadow;
     
@@ -102,6 +98,12 @@
     &__heading {
         @mixin headingNormal;
         font-size: 2rem;
+        @mixin atSmall {
+            font-size: 2.5rem;
+        }
+        @mixin atMedium {
+            font-size: 2rem;
+        }
         line-height: 1.4em;
          
     }

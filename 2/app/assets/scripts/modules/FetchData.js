@@ -19,7 +19,7 @@ class FetchData {
     
     fetchBlog() {
         
-        const options = {  
+        const fetchOptions = {  
             method: 'GET',  
             headers: {  
                 "X-Mashape-Key": "sarKCOG8IdmshLyiDEEjqRWb2fbvp1Y436JjsnTFCLiQPcJFLC",
@@ -27,72 +27,92 @@ class FetchData {
             },
             mode: 'cors'
         }
+        const placeholderArticle = {
+            title: "Something is not right. Try to load again.",
+            source_url: "#",
+            image_url: "../../assets/images/error.jpg",
+            publisher: "Site Author"
+        }
          
         function getEndpoint() {
             const randomId = Math.floor((Math.random() * 1000) * 3);
             return `https://community-food2fork.p.mashape.com/get?key=6cd3caec14ca49d62973115215d3d885&rId=${randomId}`;
         }
         
-        function renderContent(jsonData) {
-            const recipe = jsonData.recipe;
-            const output =  `
-            <article class="blog-article grid__cell">
-                <a class="blog-article__link" href="${recipe.source_url}">
-                    <img class="blog-article__img" src="${recipe.image_url}" alt="Picture of ${recipe.title}">
-                    <time class="blog-article__date" datetime="2016-11-10T19:00">
-                        10 <span class="blog-article__month">Nov</span>
-                    </time>
-                    <div class="blog-article__content">
-                        <h3 class="blog-article__heading">${recipe.title}</h3>
-                        <p class="blog-article__text">${recipe.publisher} - 2 hours ago</p>
-                    </div>
-                </a>
-            </article>
-            `;
-            //console.log(output)
-            return output;
+        function renderContent(jsonData, index, arr) {
+            const dateObj = new Date(),
+                  date = dateObj.getDate(),
+                  month = dateObj.toLocaleString("en-us", {month: "short"}),
+                  dateTime = dateObj.toISOString().substr(0, 16);
+            
+            let recipe = jsonData.recipe;
+            let marginClass = "";
+            
+            switch(arr.length) {
+                case 1:
+                    marginClass = "grid__cell--margin-right-none";
+                    break;
+                case 2: 
+                    if (index === 0) {
+                        marginClass = "grid__cell--margin-right-m-xs";
+                    }
+                    break;
+                case 3:
+                    if (index === 0) {
+                    marginClass = "grid__cell--margin-right-m-xs";
+                    }
+                    if (index === 1) {
+                        marginClass = "grid__cell--margin-right-m-xs";
+                    }
+                    break;
+                default:
+                    recipe = placeholderArticle;
+            }
+            
+            return`
+                <article class="blog-article grid__cell ${marginClass}">
+                    <a class="blog-article__link" href="${recipe.source_url}">
+                        <img class="blog-article__img" src="${recipe.image_url}" alt="Picture of ${recipe.title}">
+                        <time class="blog-article__date" datetime="${dateTime}">
+                            ${date} <span class="blog-article__month">${month}</span>
+                        </time>
+                        <div class="blog-article__content">
+                            <h3 class="blog-article__heading">${recipe.title}</h3>
+                            <p class="blog-article__text">By ${recipe.publisher} - Just Now</p>
+                        </div>
+                    </a>
+                </article>
+                `;
+               
         }
         
-        function displayContent(html) {
-            console.log(html);
-            const newContainer = document.createElement("div");
-            const blogContainer = document.querySelector("#blog .grid-m");
+        function injectHTML(content) {
+            const newContainer = document.createElement("div"),
+                  blogContainer = document.querySelector(".blog__articles-container");
+            let contentHTML = "";
+            
+            content.forEach(element => {contentHTML += element});
             
             newContainer.classList.add("grid-m");
-            newContainer.innerHTML = html;
-            console.log(newContainer.innerHTML);
-            console.log(blogContainer);
+            newContainer.innerHTML = contentHTML;
             
             blogContainer.appendChild(newContainer);
-            
-            
         }
         
-       // fetch(getEndpoint(), options)
-          //  .then(response => response.json())
-          //  .then( data => console.log(data));
-        
         Promise.all([
-            fetch(getEndpoint(), options),
-            fetch(getEndpoint(), options),
-            fetch(getEndpoint(), options) 
+            fetch(getEndpoint(), fetchOptions),
+            fetch(getEndpoint(), fetchOptions),
+            fetch(getEndpoint(), fetchOptions) 
         ])
         .then(responses => {
-            //console.log(responses);
             return Promise.all(responses.map(response => response.json()));
         })
-        .then(data => {
-            return Promise.all(data.map(jsonData => renderContent(jsonData)));
-        })
-        .then(content => {
-            content.forEach( html => displayContent(html))
-        })
-        //.catch(error => {throw new Error("Something is wrong")});
-             
-    
+        .then(unfiltredData => unfiltredData.filter(data => data.recipe.title))
+        .then(filtredData => filtredData.map(renderContent))
+        .then(injectHTML)
+        .catch(error => {console.log(error.message)}); 
         
     }
-    
     
 }
 

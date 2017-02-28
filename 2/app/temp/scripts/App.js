@@ -112,7 +112,7 @@ var FetchData = function () {
         key: "fetchBlog",
         value: function fetchBlog() {
 
-            var options = {
+            var fetchOptions = {
                 method: 'GET',
                 headers: {
                     "X-Mashape-Key": "sarKCOG8IdmshLyiDEEjqRWb2fbvp1Y436JjsnTFCLiQPcJFLC",
@@ -120,52 +120,79 @@ var FetchData = function () {
                 },
                 mode: 'cors'
             };
+            var placeholderArticle = {
+                title: "Something is not right. Try to load again.",
+                source_url: "#",
+                image_url: "../../assets/images/error.jpg",
+                publisher: "Site Author"
+            };
 
             function getEndpoint() {
                 var randomId = Math.floor(Math.random() * 1000 * 3);
                 return "https://community-food2fork.p.mashape.com/get?key=6cd3caec14ca49d62973115215d3d885&rId=" + randomId;
             }
 
-            function renderContent(jsonData) {
+            function renderContent(jsonData, index, arr) {
+                var dateObj = new Date(),
+                    date = dateObj.getDate(),
+                    month = dateObj.toLocaleString("en-us", { month: "short" }),
+                    dateTime = dateObj.toISOString().substr(0, 16);
+
                 var recipe = jsonData.recipe;
-                var output = "\n            <article class=\"blog-article grid__cell\">\n                <a class=\"blog-article__link\" href=\"" + recipe.source_url + "\">\n                    <img class=\"blog-article__img\" src=\"" + recipe.image_url + "\" alt=\"Picture of " + recipe.title + "\">\n                    <time class=\"blog-article__date\" datetime=\"2016-11-10T19:00\">\n                        10 <span class=\"blog-article__month\">Nov</span>\n                    </time>\n                    <div class=\"blog-article__content\">\n                        <h3 class=\"blog-article__heading\">" + recipe.title + "</h3>\n                        <p class=\"blog-article__text\">" + recipe.publisher + " - 2 hours ago</p>\n                    </div>\n                </a>\n            </article>\n            ";
-                //console.log(output)
-                return output;
+                var marginClass = "";
+
+                switch (arr.length) {
+                    case 1:
+                        marginClass = "grid__cell--margin-right-none";
+                        break;
+                    case 2:
+                        if (index === 0) {
+                            marginClass = "grid__cell--margin-right-m-xs";
+                        }
+                        break;
+                    case 3:
+                        if (index === 0) {
+                            marginClass = "grid__cell--margin-right-m-xs";
+                        }
+                        if (index === 1) {
+                            marginClass = "grid__cell--margin-right-m-xs";
+                        }
+                        break;
+                    default:
+                        recipe = placeholderArticle;
+                }
+
+                return "\n                <article class=\"blog-article grid__cell " + marginClass + "\">\n                    <a class=\"blog-article__link\" href=\"" + recipe.source_url + "\">\n                        <img class=\"blog-article__img\" src=\"" + recipe.image_url + "\" alt=\"Picture of " + recipe.title + "\">\n                        <time class=\"blog-article__date\" datetime=\"" + dateTime + "\">\n                            " + date + " <span class=\"blog-article__month\">" + month + "</span>\n                        </time>\n                        <div class=\"blog-article__content\">\n                            <h3 class=\"blog-article__heading\">" + recipe.title + "</h3>\n                            <p class=\"blog-article__text\">By " + recipe.publisher + " - Just Now</p>\n                        </div>\n                    </a>\n                </article>\n                ";
             }
 
-            function displayContent(html) {
-                console.log(html);
-                var newContainer = document.createElement("div");
-                var blogContainer = document.querySelector("#blog .grid-m");
+            function injectHTML(content) {
+                var newContainer = document.createElement("div"),
+                    blogContainer = document.querySelector(".blog__articles-container");
+                var contentHTML = "";
+
+                content.forEach(function (element) {
+                    contentHTML += element;
+                });
 
                 newContainer.classList.add("grid-m");
-                newContainer.innerHTML = html;
-                console.log(newContainer.innerHTML);
-                console.log(blogContainer);
+                newContainer.innerHTML = contentHTML;
 
                 blogContainer.appendChild(newContainer);
             }
 
-            // fetch(getEndpoint(), options)
-            //  .then(response => response.json())
-            //  .then( data => console.log(data));
-
-            Promise.all([fetch(getEndpoint(), options), fetch(getEndpoint(), options), fetch(getEndpoint(), options)]).then(function (responses) {
-                //console.log(responses);
+            Promise.all([fetch(getEndpoint(), fetchOptions), fetch(getEndpoint(), fetchOptions), fetch(getEndpoint(), fetchOptions)]).then(function (responses) {
                 return Promise.all(responses.map(function (response) {
                     return response.json();
                 }));
-            }).then(function (data) {
-                return Promise.all(data.map(function (jsonData) {
-                    return renderContent(jsonData);
-                }));
-            }).then(function (content) {
-                content.forEach(function (html) {
-                    return displayContent(html);
+            }).then(function (unfiltredData) {
+                return unfiltredData.filter(function (data) {
+                    return data.recipe.title;
                 });
+            }).then(function (filtredData) {
+                return filtredData.map(renderContent);
+            }).then(injectHTML).catch(function (error) {
+                console.log(error.message);
             });
-            //.catch(error => {throw new Error("Something is wrong")});
-
         }
     }]);
 
