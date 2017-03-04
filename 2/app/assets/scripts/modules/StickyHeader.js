@@ -11,17 +11,16 @@ class StickyHeader {
     }
     
     events() {
-       
-        window.addEventListener("scroll", () => {
-            // Shrink header
-           this.highlightLinks();
-            // Highlight navigation links
-           this.toggleShrink();
-        });
-    
-        // Scroll to section
-        this.menuLinks.forEach( link => link.addEventListener("click", this.scrollToSection));
-        
+        document.addEventListener("DOMContentLoaded", () => {
+            window.addEventListener("scroll", () => {
+                // Shrink header
+               this.highlightLinks();
+                // Highlight navigation links
+               this.toggleShrink();
+            });
+            // Scroll to section
+            this.menuLinks.forEach( link => link.addEventListener("click", this.scrollToSection));
+            });
     }
  
     toggleShrink() {

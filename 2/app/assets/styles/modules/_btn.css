@@ -24,7 +24,8 @@
     }
     
     &--center,
-    &--center-xs {
+    &--center-xs,
+    &--center-s {
         display: block;
         margin: 0 auto;
     }
@@ -32,6 +33,12 @@
     &--center-xs {
         width: 11em;
         @mixin atSmall {
+            display: inline-block;
+            width: auto;
+        }
+    }
+    &--center-s {
+        @mixin atMedium {
             display: inline-block;
             width: auto;
         }
@@ -60,4 +67,28 @@
             background-color: $darkRed;
         }
     }
+    
+    &--loading {
+        position: relative;
+        pointer-events: none;
+        opacity: 0.5;
+        
+        &::after {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 1.2em;
+            height: 1.2em;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-right-color: rgba(255,255, 255, 0.9);
+            transform: translate(-50%, -50%) rotate(0deg);
+            content:'';
+            animation: btn--loading-animation 0.5s infinite linear;
+            z-index: 100;
+        }
+        
+    }
+    
+    
 }

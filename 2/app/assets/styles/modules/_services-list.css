@@ -1,14 +1,10 @@
 .services-list {
+    padding-left: 0;
         
     @mixin atExtraLarge {
         margin-left: 5em;
     }
-
-    ul {
-       padding: 0;
-    }
-
-
+    
     &__item {
         list-style: none;
         background-color: rgb(255, 255, 255);

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -56,67 +56,63 @@
                     <header class="grid__cell services__header">
                         <h2 class="services__heading">Our services</h2>
                     </header>
-                    <div class="services-list grid__cell grid__cell--margin-right-m-s">
-                        <ul>
-                            <li class="services-list__item grid grid--center">
-                                <div class="grid__cell-3">
-                                    <strong>Online Shopping</strong>
-                                </div>
-                                <div class="services-list__icon grid__cell grid" aria-hidden="true">
-                                    <span class="icon icon--shopping grid__cell--center"></span>
-                                </div>
-                            </li>
-                            <li class="services-list__item grid grid--center">
-                                <div class="grid__cell-3">
-                                    <strong>Quality Product</strong>
-                                </div>
-                                <div class="services-list__icon grid__cell grid" aria-hidden="true">   
-                                    <span class="icon icon--product grid__cell--center"></span>
-                                </div>
-                            </li>
-                            <li class="services-list__item grid grid--center">
-                                <div class="grid__cell-3">
-                                    <strong>Domestic &amp; International Delivery</strong>
-                                </div>
-                                <div class="services-list__icon grid__cell grid" aria-hidden="true">
-                                    <span class="icon icon--delivery grid__cell--center"></span>
-                                </div>
-                            </li>
-                            <li class="services-list__item grid grid--center">
-                                <div class="grid__cell-3">
-                                    <strong>Well Organized</strong>
-                                </div>
-                                <div class="services-list__icon grid__cell grid" aria-hidden="true">
-                                    <span class="icon icon--organized grid__cell--center"></span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="services-list grid__cell grid__cell--margin-right-m-s">
+                        <li class="services-list__item grid grid--center">
+                            <div class="grid__cell-3">
+                                <strong>Online Shopping</strong>
+                            </div>
+                            <div class="services-list__icon grid__cell grid" aria-hidden="true">
+                                <span class="icon icon--shopping grid__cell--center"></span>
+                            </div>
+                        </li>
+                        <li class="services-list__item grid grid--center">
+                            <div class="grid__cell-3">
+                                <strong>Quality Product</strong>
+                            </div>
+                            <div class="services-list__icon grid__cell grid" aria-hidden="true">   
+                                <span class="icon icon--product grid__cell--center"></span>
+                            </div>
+                        </li>
+                        <li class="services-list__item grid grid--center">
+                            <div class="grid__cell-3">
+                                <strong>Domestic &amp; International Delivery</strong>
+                            </div>
+                            <div class="services-list__icon grid__cell grid" aria-hidden="true">
+                                <span class="icon icon--delivery grid__cell--center"></span>
+                            </div>
+                        </li>
+                        <li class="services-list__item grid grid--center">
+                            <div class="grid__cell-3">
+                                <strong>Well Organized</strong>
+                            </div>
+                            <div class="services-list__icon grid__cell grid" aria-hidden="true">
+                                <span class="icon icon--organized grid__cell--center"></span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </section>
             <section id="gallery" class="gallery">
                 <div class="wrapper gallery__content">
                     <h2 class="gallery__heading">Gallery</h2>
                     <p class="gallery__text">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                    <div class="gallery__row grid-m">
-                        <div class="grid__cell-gallery-l grid__cell--margin-right-m-xs gallery__img">
-                            <img src="assets/images/gallery-l.png">
-                        </div>
-                        <div class="grid__cell-gallery-s grid-m grid--column">
-                            <div class="gallery__img">
-                                <img src="assets/images/gallery-s.png">
+                    <div class="gallery__img-container">
+                        <div class="gallery__row grid-m">
+                            <div class="grid__cell-gallery-l grid__cell--margin-right-m-xs">
+                                <img class="gallery__img" src="assets/images/gallery-l.png" alt="">
                             </div>
-                            <div class="gallery__img">
-                                <img src="assets/images/gallery-s2.png">
-                            </div>
-                        </div>   
-                    </div>
-                    <div class="gallery__row grid-m">
-                        <div class="grid__cell grid__cell--margin-right-m-xs gallery__img">
-                            <img src="assets/images/gallery-m.png">
+                            <div class="grid__cell-gallery-s grid-m grid--column">
+                                <img class="gallery__img" src="assets/images/gallery-s.png" alt="">
+                                <img class="gallery__img" src="assets/images/gallery-s2.png" alt="">
+                            </div>   
                         </div>
-                        <div class="grid__cell gallery__img">
-                            <img src="assets/images/gallery-m2.png">
+                        <div class="gallery__row grid-m">
+                            <div class="grid__cell grid__cell--margin-right-m-xs">
+                                <img class="gallery__img" src="assets/images/gallery-m.png" alt="">
+                            </div>
+                            <div class="grid__cell">
+                                <img class="gallery__img" src="assets/images/gallery-m2.png" alt="">
+                            </div>
                         </div>
                     </div>
                     <div class="gallery__btn-container">
@@ -134,7 +130,7 @@
                             <input type="email" class="subscribe-form__input" id="sub-email" placeholder="Your email address">
                         </div>
                         <div class="subscribe-form__btn grid__cell">
-                            <button type="submit" class="btn btn--center-xs btn--green">Subscribe</button>
+                            <button type="submit" class="btn btn--center-s btn--green">Subscribe</button>
                         </div>
                     </form>
                 </div>
@@ -192,15 +188,15 @@
                     <p class="contact__text">For new projects, ideas, business or anything you'd like to discuss contact with me!</p>
                     <div class="grid-m">
                         <form class="contact-form grid__cell grid__cell--margin-right-m-m">
-                        <h3 class="contact-form__heading">Contact form</h3>
-                        <label for="msg-name" class="contact-form__label">Your name</label>
-                        <input type="text" id="msg-name" placeholder="Your name..." class="contact-form__input">
-                        <label for="msg-email" class="contact-form__label">Your email</label>
-                        <input type="email" id="msg-email" placeholder="Your email..." class="contact-form__input">
-                        <label for="msg-phone" class="contact-form__label">Your phone number</label>
-                        <input type="phone" id="msg-phone" placeholder="Your phone number..." class="contact-form__input">
-                        <label for="msg-text" class="contact-form__label">Your message</label>
-                        <textarea id="msg-text" name="message" placeholder="Your massage..." rows="15" class="contact-form__input"></textarea>
+                            <h3 class="contact-form__heading">Contact form</h3>
+                            <label for="msg-name" class="contact-form__label">Your name</label>
+                            <input type="text" id="msg-name" placeholder="Your name..." class="contact-form__input">
+                            <label for="msg-email" class="contact-form__label">Your email</label>
+                            <input type="email" id="msg-email" placeholder="Your email..." class="contact-form__input">
+                            <label for="msg-phone" class="contact-form__label">Your phone number</label>
+                            <input type="phone" id="msg-phone" placeholder="Your phone number..." class="contact-form__input">
+                            <label for="msg-text" class="contact-form__label">Your message</label>
+                            <textarea id="msg-text" name="message" placeholder="Your massage..." rows="15" class="contact-form__input"></textarea>
                         </form>
                         <address class="grid__cell">
                             <dl class="contact-address">

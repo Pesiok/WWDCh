@@ -12,19 +12,20 @@
         }
     }
     
+    &__img-container {
+    }
+    
     &__img {
+        display: block;
+        width: 100%;
+        
         @mixin boxShadow;
+        animation: load-item-animation 0.4s ease-in forwards;
         
         margin-bottom: 2em;
         
         @mixin atMedium {
             margin-bottom: 0;
-        }
-        
-        img {
-            display: block;
-            margin: 0;
-            width: 100%;     
         }
     }
     

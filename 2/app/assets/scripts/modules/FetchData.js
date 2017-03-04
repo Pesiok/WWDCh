@@ -1,23 +1,30 @@
 import promise from 'es6-promise'
 promise.polyfill()
 import "isomorphic-fetch"
+
 class FetchData {
     
     constructor() {
-        this.galleryBtn = document.getElementById("gallery-btn");
         this.blogBtn = document.getElementById("blog-btn");
+        this.blogContainer = document.querySelector(".blog__articles-container");
+        this.galleryBtn = document.getElementById("gallery-btn");
+        this.galleryContainer = document.querySelector(".gallery__img-container");
         this.events();
     }
     
     events() {
-        //get gallery data
-        this.galleryBtn.addEventListener("click", this.fetchGallery);
-        //get blog data
-        this.blogBtn.addEventListener("click", this.fetchBlog);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            //get gallery data
+            this.galleryBtn.addEventListener("click", this.fetchGallery.bind(null, this.galleryBtn, this.galleryContainer));
+            //get blog data
+            this.blogBtn.addEventListener("click", this.fetchBlog.bind(null, this.blogBtn, this.blogContainer));
+            
+        });
         
     }
     
-    fetchBlog() {
+    fetchBlog(trigger, output) {
         
         const fetchOptions = {  
             method: 'GET',  
@@ -83,12 +90,10 @@ class FetchData {
                     </a>
                 </article>
                 `;
-               
         }
         
         function injectHTML(content) {
-            const newContainer = document.createElement("div"),
-                  blogContainer = document.querySelector(".blog__articles-container");
+            const newContainer = document.createElement("div");
             let contentHTML = "";
             
             content.forEach(element => {contentHTML += element});
@@ -96,8 +101,15 @@ class FetchData {
             newContainer.classList.add("grid-m");
             newContainer.innerHTML = contentHTML;
             
-            blogContainer.appendChild(newContainer);
+            output.appendChild(newContainer);
         }
+        
+        function toggleBtnAnim() {
+            trigger.classList.toggle("btn--loading");
+        }        
+        //fetching
+        
+        toggleBtnAnim();
         
         Promise.all([
             fetch(getEndpoint(), fetchOptions),
@@ -110,8 +122,78 @@ class FetchData {
         .then(unfiltredData => unfiltredData.filter(data => data.recipe.title))
         .then(filtredData => filtredData.map(renderContent))
         .then(injectHTML)
-        .catch(error => {console.log(error.message)}); 
+        .then(toggleBtnAnim)
+        .catch(error => {console.log(error.message)});
+    }
+    
+    fetchGallery(trigger, output) {
         
+        const fetchOptions = {  
+            method: 'GET',  
+            headers: {  
+                "X-Mashape-Key": "sarKCOG8IdmshLyiDEEjqRWb2fbvp1Y436JjsnTFCLiQPcJFLC",
+                "Accept": 'text/plain'
+            },
+            mode: 'cors'
+        }
+        
+        function toggleBtnAnim() {
+            trigger.classList.toggle("btn--loading");
+        }        
+        
+        function getEndpoint() {
+            const randomValue = (10 * Math.floor(Math.random() * 7)),
+                  width = 500 + randomValue,
+                  height = 400 + randomValue;
+            return `https://community-placekitten.p.mashape.com/${width}/${height}`; 
+        }
+        
+        function renderContent(blobData, index) {
+            const objectURL = URL.createObjectURL(blobData),
+                  img = document.createElement("img"),
+                  divContainer = document.createElement("div");
+            
+            objectURL ? img.src = objectURL : img.src = "../../assets/images/error.jpg";
+            
+            img.alt = "";
+            img.classList.add("gallery__img");
+            img.classList.add("grid__cell");
+            
+            divContainer.classList.add("grid__cell");
+            if (index === 0) {
+                divContainer.classList.add("grid__cell--margin-right-m-xs");
+            }
+            divContainer.appendChild(img);
+           
+            return divContainer;
+        }
+        
+        function injectHTML(content) {
+            const gridContainer = document.createElement("div");
+            gridContainer.classList.add("gallery__row");
+            gridContainer.classList.add("grid-m");
+            
+            content.forEach(divContainer => gridContainer.appendChild(divContainer));
+            
+            output.appendChild(gridContainer);
+            
+        }
+        
+        //fetching
+        
+        toggleBtnAnim();
+        
+        Promise.all([
+            fetch(getEndpoint(), fetchOptions),
+            fetch(getEndpoint(), fetchOptions)
+        ])
+        .then(responses => {
+            return Promise.all(responses.map(response => response.blob()));
+        })
+        .then(blobData => blobData.map(renderContent))
+        .then(injectHTML)
+        .then(toggleBtnAnim)
+        .catch(error => {console.log(error.message)});
     }
     
 }

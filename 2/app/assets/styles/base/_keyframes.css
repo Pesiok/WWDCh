@@ -1,0 +1,18 @@
+@keyframes btn--loading-animation {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes load-item-animation {
+    from {
+        opacity: 0;
+        transform: scale(0.4);
+    } 
+    to {
+        opacity: 1;
+    }
+}

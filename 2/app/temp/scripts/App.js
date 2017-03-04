@@ -95,22 +95,28 @@ var FetchData = function () {
     function FetchData() {
         _classCallCheck(this, FetchData);
 
-        this.galleryBtn = document.getElementById("gallery-btn");
         this.blogBtn = document.getElementById("blog-btn");
+        this.blogContainer = document.querySelector(".blog__articles-container");
+        this.galleryBtn = document.getElementById("gallery-btn");
+        this.galleryContainer = document.querySelector(".gallery__img-container");
         this.events();
     }
 
     _createClass(FetchData, [{
         key: "events",
         value: function events() {
-            //get gallery data
-            this.galleryBtn.addEventListener("click", this.fetchGallery);
-            //get blog data
-            this.blogBtn.addEventListener("click", this.fetchBlog);
+            var _this = this;
+
+            document.addEventListener("DOMContentLoaded", function () {
+                //get gallery data
+                _this.galleryBtn.addEventListener("click", _this.fetchGallery.bind(null, _this.galleryBtn, _this.galleryContainer));
+                //get blog data
+                _this.blogBtn.addEventListener("click", _this.fetchBlog.bind(null, _this.blogBtn, _this.blogContainer));
+            });
         }
     }, {
         key: "fetchBlog",
-        value: function fetchBlog() {
+        value: function fetchBlog(trigger, output) {
 
             var fetchOptions = {
                 method: 'GET',
@@ -166,8 +172,7 @@ var FetchData = function () {
             }
 
             function injectHTML(content) {
-                var newContainer = document.createElement("div"),
-                    blogContainer = document.querySelector(".blog__articles-container");
+                var newContainer = document.createElement("div");
                 var contentHTML = "";
 
                 content.forEach(function (element) {
@@ -177,8 +182,15 @@ var FetchData = function () {
                 newContainer.classList.add("grid-m");
                 newContainer.innerHTML = contentHTML;
 
-                blogContainer.appendChild(newContainer);
+                output.appendChild(newContainer);
             }
+
+            function toggleBtnAnim() {
+                trigger.classList.toggle("btn--loading");
+            }
+            //fetching
+
+            toggleBtnAnim();
 
             Promise.all([fetch(getEndpoint(), fetchOptions), fetch(getEndpoint(), fetchOptions), fetch(getEndpoint(), fetchOptions)]).then(function (responses) {
                 return Promise.all(responses.map(function (response) {
@@ -190,7 +202,77 @@ var FetchData = function () {
                 });
             }).then(function (filtredData) {
                 return filtredData.map(renderContent);
-            }).then(injectHTML).catch(function (error) {
+            }).then(injectHTML).then(toggleBtnAnim).catch(function (error) {
+                console.log(error.message);
+            });
+        }
+    }, {
+        key: "fetchGallery",
+        value: function fetchGallery(trigger, output) {
+
+            var fetchOptions = {
+                method: 'GET',
+                headers: {
+                    "X-Mashape-Key": "sarKCOG8IdmshLyiDEEjqRWb2fbvp1Y436JjsnTFCLiQPcJFLC",
+                    "Accept": 'text/plain'
+                },
+                mode: 'cors'
+            };
+
+            function toggleBtnAnim() {
+                trigger.classList.toggle("btn--loading");
+            }
+
+            function getEndpoint() {
+                var randomValue = 10 * Math.floor(Math.random() * 7),
+                    width = 500 + randomValue,
+                    height = 400 + randomValue;
+                return "https://community-placekitten.p.mashape.com/" + width + "/" + height;
+            }
+
+            function renderContent(blobData, index) {
+                var objectURL = URL.createObjectURL(blobData),
+                    img = document.createElement("img"),
+                    divContainer = document.createElement("div");
+
+                objectURL ? img.src = objectURL : img.src = "../../assets/images/error.jpg";
+
+                img.alt = "";
+                img.classList.add("gallery__img");
+                img.classList.add("grid__cell");
+
+                divContainer.classList.add("grid__cell");
+                if (index === 0) {
+                    divContainer.classList.add("grid__cell--margin-right-m-xs");
+                }
+                divContainer.appendChild(img);
+
+                return divContainer;
+            }
+
+            function injectHTML(content) {
+                var gridContainer = document.createElement("div");
+                gridContainer.classList.add("gallery__row");
+                gridContainer.classList.add("grid-m");
+
+                content.forEach(function (divContainer) {
+                    return gridContainer.appendChild(divContainer);
+                });
+
+                output.appendChild(gridContainer);
+            }
+
+            //fetching
+
+            toggleBtnAnim();
+
+            Promise.all([fetch(getEndpoint(), fetchOptions), fetch(getEndpoint(), fetchOptions)]).then(function (responses) {
+                return Promise.all(responses.map(function (response) {
+                    return response.blob();
+                }));
+            }).then(function (blobData) {
+                return blobData.map(renderContent);
+            }).then(injectHTML).then(toggleBtnAnim).catch(function (error) {
                 console.log(error.message);
             });
         }
@@ -230,19 +312,20 @@ var MobileMenu = function () {
         value: function events() {
             var _this = this;
 
-            this.menuIcon.addEventListener("click", function () {
-                return _this.toggleMenu();
+            document.addEventListener("DOMContentLoaded", function () {
+                _this.menuIcon.addEventListener("click", function () {
+                    return _this.toggleMenu();
+                });
             });
         }
     }, {
         key: "toggleMenu",
         value: function toggleMenu() {
-
             // CSS Classes
             this.pageNavigation.classList.toggle("page-navigation--is-expanded");
             this.menuIcon.classList.toggle("menu-icon--close-x");
 
-            // Aria atributes
+            // Aria attributes
             if (this.menuIcon.getAttribute("aria-expanded") == "false") {
                 this.menuIcon.setAttribute("aria-expanded", "true");
             } else {
@@ -294,16 +377,17 @@ var StickyHeader = function () {
         value: function events() {
             var _this = this;
 
-            window.addEventListener("scroll", function () {
-                // Shrink header
-                _this.highlightLinks();
-                // Highlight navigation links
-                _this.toggleShrink();
-            });
-
-            // Scroll to section
-            this.menuLinks.forEach(function (link) {
-                return link.addEventListener("click", _this.scrollToSection);
+            document.addEventListener("DOMContentLoaded", function () {
+                window.addEventListener("scroll", function () {
+                    // Shrink header
+                    _this.highlightLinks();
+                    // Highlight navigation links
+                    _this.toggleShrink();
+                });
+                // Scroll to section
+                _this.menuLinks.forEach(function (link) {
+                    return link.addEventListener("click", _this.scrollToSection);
+                });
             });
         }
     }, {
@@ -2521,9 +2605,11 @@ var _FetchData2 = _interopRequireDefault(_FetchData);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mobileMenu = new _MobileMenu2.default();
-var stickyHeader = new _StickyHeader2.default();
-var fetchData = new _FetchData2.default();
+{
+    var mobileMenu = new _MobileMenu2.default();
+    var stickyHeader = new _StickyHeader2.default();
+    var fetchData = new _FetchData2.default();
+}
 
 /***/ })
 /******/ ]);
