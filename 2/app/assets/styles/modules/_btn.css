@@ -23,6 +23,11 @@
         left: -1px;
     }
     
+    &--narrow {
+        font-size: 1.8rem;
+        padding: 0.5em 2.7em;
+    }
+    
     &--center,
     &--center-xs,
     &--center-s {

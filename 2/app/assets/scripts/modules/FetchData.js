@@ -1,5 +1,3 @@
-import promise from 'es6-promise'
-promise.polyfill()
 import "isomorphic-fetch"
 
 class FetchData {
@@ -13,19 +11,16 @@ class FetchData {
     }
     
     events() {
-
         document.addEventListener("DOMContentLoaded", () => {
             //get gallery data
             this.galleryBtn.addEventListener("click", this.fetchGallery.bind(null, this.galleryBtn, this.galleryContainer));
             //get blog data
             this.blogBtn.addEventListener("click", this.fetchBlog.bind(null, this.blogBtn, this.blogContainer));
-            
         });
         
     }
     
     fetchBlog(trigger, output) {
-        
         const fetchOptions = {  
             method: 'GET',  
             headers: {  
@@ -34,13 +29,14 @@ class FetchData {
             },
             mode: 'cors'
         }
+        
         const placeholderArticle = {
             title: "Something is not right. Try to load again.",
             source_url: "#",
             image_url: "../../assets/images/error.jpg",
             publisher: "Site Author"
         }
-         
+        
         function getEndpoint() {
             const randomId = Math.floor((Math.random() * 1000) * 3);
             return `https://community-food2fork.p.mashape.com/get?key=6cd3caec14ca49d62973115215d3d885&rId=${randomId}`;
@@ -97,20 +93,17 @@ class FetchData {
             let contentHTML = "";
             
             content.forEach(element => {contentHTML += element});
-            
             newContainer.classList.add("grid-m");
             newContainer.innerHTML = contentHTML;
-            
             output.appendChild(newContainer);
         }
         
         function toggleBtnAnim() {
             trigger.classList.toggle("btn--loading");
-        }        
+        } 
+        
         //fetching
-        
         toggleBtnAnim();
-        
         Promise.all([
             fetch(getEndpoint(), fetchOptions),
             fetch(getEndpoint(), fetchOptions),
@@ -127,7 +120,6 @@ class FetchData {
     }
     
     fetchGallery(trigger, output) {
-        
         const fetchOptions = {  
             method: 'GET',  
             headers: {  
@@ -174,15 +166,11 @@ class FetchData {
             gridContainer.classList.add("grid-m");
             
             content.forEach(divContainer => gridContainer.appendChild(divContainer));
-            
             output.appendChild(gridContainer);
-            
         }
         
         //fetching
-        
         toggleBtnAnim();
-        
         Promise.all([
             fetch(getEndpoint(), fetchOptions),
             fetch(getEndpoint(), fetchOptions)

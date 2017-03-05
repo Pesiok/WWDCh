@@ -17,13 +17,14 @@
         font-size: 1.5rem;
         color: rgb(255, 255, 255);
         
+        outline-color: $mainBlack;
+        
         width: 100%;
         padding: 1em 1.4em;
         margin-bottom: 1em;
         
         border: none;
         resize: none;
-        
     }
     
     &__input::placeholder {

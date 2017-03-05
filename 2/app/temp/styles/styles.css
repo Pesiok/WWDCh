@@ -968,6 +968,11 @@ html {
   left: -1px;
 }
 
+.btn--narrow {
+  font-size: 1.8rem;
+  padding: 0.5em 2.7em;
+}
+
 .btn--center,
     .btn--center-xs,
     .btn--center-s {
@@ -1455,6 +1460,25 @@ html {
   margin-top: 5em;
 }
 
+.validation-msg {
+  display: none;
+  width: 100%;
+}
+
+.validation-msg__text {
+  color: rgb(191, 100, 107);
+}
+
+input.validation-error, textarea.validation-error {
+  background-color: rgb(191, 100, 107);
+  border: 2px solid rgb(211, 16, 32);
+}
+
+input.validation-ok, textarea.validation-ok {
+  background-color: rgb(106, 198, 90);
+  border: 2px solid rgb(117, 145, 29);
+}
+
 .subscribe {
     background-image: url(../../assets/images/subscribe-2.png);
     background-repeat: no-repeat;
@@ -1809,6 +1833,7 @@ html {
   font-family: 'Raleway-Light';
   font-size: 1.5rem;
   color: rgb(255, 255, 255);
+  outline-color: rgb(38, 38, 38);
   width: 100%;
   padding: 1em 1.4em;
   margin-bottom: 1em;
