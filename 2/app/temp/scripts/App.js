@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 305);
+/******/ 	return __webpack_require__(__webpack_require__.s = 304);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -3322,7 +3322,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(300);
+__webpack_require__(303);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -3580,7 +3580,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _smoothscrollPolyfill = __webpack_require__(303);
+var _smoothscrollPolyfill = __webpack_require__(302);
 
 var _smoothscrollPolyfill2 = _interopRequireDefault(_smoothscrollPolyfill);
 
@@ -3686,62 +3686,103 @@ var Validation = function () {
         //subscribe
         this.subscribeForm = document.querySelector(".subscribe-form");
         this.subscribeInput = [document.getElementById("sub-email")];
-
+        this.init();
         this.events();
     }
 
+    //allows form validation for non-js users
+
+
     _createClass(Validation, [{
+        key: "init",
+        value: function init() {
+            this.contactForm.setAttribute("novalidate", "novalidate");
+            this.subscribeForm.setAttribute("novalidate", "novalidate");
+        }
+    }, {
         key: "events",
         value: function events() {
             var _this = this;
 
             document.addEventListener("DOMContentLoaded", function () {
                 //contact
-                _this.contactForm.addEventListener("submit", _this.validateForm);
+                _this.contactForm.addEventListener("submit", _this.validate);
                 _this.contactInput.forEach(function (input) {
-                    return input.addEventListener("blur", _this.validateInput);
+                    return input.addEventListener("blur", _this.validate);
                 });
                 //subscribe
-                _this.subscribeForm.addEventListener("submit", _this.validateForm);
+                _this.subscribeForm.addEventListener("submit", _this.validate);
                 _this.subscribeInput.forEach(function (input) {
-                    return input.addEventListener("blur", _this.validateInput);
+                    return input.addEventListener("blur", _this.validate);
                 });
             });
         }
     }, {
-        key: "validateInput",
-        value: function validateInput() {
-            if (!this.validity.valid) {
-                this.classList.add("validation-error");
-            } else {
-                this.classList.remove("validation-error");
+        key: "validate",
+        value: function validate(event) {
+            var element = event.target;
+
+            function errorHandler(input, msg) {
+                //change input style
+                input.classList.remove("validation-ok");
+                input.classList.add("validation-error");
+                //display the message
+                msg.classList.add("validation-msg--active");
+                //aria attributes
+                msg.setAttribute("aria-hidden", "false");
+                input.setAttribute("aria-invalid", "true");
+                input.setAttribute("aria-describedby", msg.id);
             }
-        }
-    }, {
-        key: "validateForm",
-        value: function validateForm(event) {
-            var inputsArray = [].concat(_toConsumableArray(this.getElementsByTagName("input"))),
-                textareasArray = [].concat(_toConsumableArray(this.getElementsByTagName("textarea")));
-            var allInputs = void 0;
-            textareasArray ? allInputs = inputsArray.concat(textareasArray) : allInputs = inputsArray;
 
-            allInputs.map(function (input) {
-                if (!input.validity.valid) {
+            function okHandler(input, msg) {
+                //change input style
+                input.classList.remove("validation-error");
+                input.classList.add("validation-ok");
+                //display the message
+                msg.classList.remove("validation-msg--active");
+                //aria attributes
+                msg.setAttribute("aria-hidden", "true");
+                input.setAttribute("aria-invalid", "false");
+                input.removeAttribute("aria-describedby");
+            }
 
-                    //const errorMsg = this.getElementById(`${input.id}-error`);
-                    //styles
-                    input.classList.add("validation-error");
-                    //errorMsg.classList.add("validation-msg");
-                    //aria attributes
-                    //errorMsg.setAttribute("aria-hidden", "false");
-                    //input.setAttribute("aria-invalid", "true");
-                    //input.setAttribute("aria-describedby", errorMsg.id);
+            function validateInput() {
+                var msg = document.querySelector("#" + element.id + "-error");
 
-                    event.preventDefault();
+                if (!element.validity.valid) {
+                    errorHandler(element, msg);
                 } else {
-                    input.classList.add("validation-ok");
+                    okHandler(element, msg);
                 }
-            });
+            }
+
+            function validateForm() {
+                var inputsArray = [].concat(_toConsumableArray(element.getElementsByTagName("input"))),
+                    textareasArray = [].concat(_toConsumableArray(element.getElementsByTagName("textarea")));
+                var allInputs = void 0;
+                textareasArray ? allInputs = inputsArray.concat(textareasArray) : allInputs = inputsArray;
+
+                allInputs.map(function (input) {
+                    var errorMsg = document.querySelector("#" + input.id + "-error");
+
+                    if (!input.validity.valid) {
+                        errorHandler(input, errorMsg);
+                        console.log(event);
+                        event.preventDefault();
+                    } else {
+                        okHandler(input, errorMsg);
+                    }
+                });
+            }
+
+            //triggering validation
+            if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+                validateInput();
+            } else if (element.tagName === "FORM") {
+                validateForm();
+            } else {
+                console.log("Inncorect event.target! ", element);
+            }
         }
     }]);
 
@@ -3759,7 +3800,7 @@ exports.default = Validation;
 
 __webpack_require__(299);
 
-__webpack_require__(302);
+__webpack_require__(301);
 
 __webpack_require__(119);
 
@@ -7883,18 +7924,6 @@ module.exports = __webpack_require__(24);
 
 /***/ }),
 /* 300 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// the whatwg-fetch polyfill installs the fetch() function
-// on the global object (window or self)
-//
-// Return that as the export for use in Webpack, Browserify etc.
-__webpack_require__(304);
-module.exports = self.fetch.bind(self);
-
-
-/***/ }),
-/* 301 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -8080,7 +8109,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 302 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {/**
@@ -8807,10 +8836,10 @@ process.umask = function() { return 0; };
   typeof self === "object" ? self : this
 );
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(113), __webpack_require__(301)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(113), __webpack_require__(300)))
 
 /***/ }),
-/* 303 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -9107,7 +9136,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 304 */
+/* 303 */
 /***/ (function(module, exports) {
 
 (function(self) {
@@ -9196,7 +9225,10 @@ process.umask = function() { return 0; };
       headers.forEach(function(value, name) {
         this.append(name, value)
       }, this)
-
+    } else if (Array.isArray(headers)) {
+      headers.forEach(function(header) {
+        this.append(header[0], header[1])
+      }, this)
     } else if (headers) {
       Object.getOwnPropertyNames(headers).forEach(function(name) {
         this.append(name, headers[name])
@@ -9571,7 +9603,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 305 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

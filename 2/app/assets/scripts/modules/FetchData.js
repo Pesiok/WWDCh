@@ -1,4 +1,4 @@
-import "isomorphic-fetch"
+import 'whatwg-fetch'
 
 class FetchData {
     

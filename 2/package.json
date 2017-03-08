@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
-    "isomorphic-fetch": "^2.2.1",
     "normalize.css": "^5.0.0",
-    "smoothscroll-polyfill": "^0.3.4"
+    "smoothscroll-polyfill": "^0.3.4",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.0",

@@ -10,18 +10,18 @@ $darkOrange: rgb(216, 71, 30);
 $mainBlue: rgb(85, 133, 162);
 $darkBlue: rgb(58, 98, 123);
 
-$lightGreen: rgb(106, 198, 90);
+$transparentGreen: rgba(150, 185, 44, 0.5);
 $mainGreen: rgb(150, 185, 44);
 $darkGreen: rgb(117, 145, 29);
 
-$lightRed: rgb(191, 100, 107);
+$transparentRed: rgba(247, 43, 59, 0.5);
 $mainRed: rgb(247, 43, 59);
 $darkRed: rgb(211, 16, 32);
 
 $mainYellow: rgb(255, 233, 47);
 
-$mainCyan: rgb(0, 178, 178);
 $transparentCyan: rgba(0, 178, 178, 0.5);
+$mainCyan: rgb(0, 178, 178);
 
 $mainViolet: rgb(176, 124, 247);
 

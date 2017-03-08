@@ -124,7 +124,7 @@
                 <div class="wrapper subscribe__content">
                     <h2 class="subscribe__heading">Subscribe to us</h2>
                     <p class="subscribe__text">Dolor sir amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <form novalidate class="subscribe-form grid-m">
+                    <form class="subscribe-form grid-m">
                         <div class="grid__cell grid__cell--margin-right-m-xs">
                             <label class="subscribe-form__label" for="sub-email">Your email address</label>
                             <input required type="email" class="subscribe-form__input" id="sub-email" placeholder="Your email address">
@@ -190,15 +190,27 @@
                     <h2 class="contact__heading">Contact</h2>
                     <p class="contact__text">For new projects, ideas, business or anything you'd like to discuss contact with me!</p>
                     <div class="grid-m">
-                        <form novalidate class="contact-form grid__cell grid__cell--margin-right-m-m">
+                        <form class="contact-form grid__cell grid__cell--margin-right-m-m">
                             <h3 class="contact-form__heading">Contact form</h3>
                             <label for="msg-name" class="contact-form__label">Your name</label>
+                            <div id="msg-name-error" class="validation-msg" aria-hidden="true" role="alert">
+                                <p class="validation-msg__text">Your email is required!</p>
+                            </div>
                             <input required type="text" id="msg-name" name="user-name" placeholder="Your name..." class="contact-form__input">
                             <label for="msg-email" class="contact-form__label">Your email</label>
+                            <div id="msg-email-error" class="validation-msg" aria-hidden="true" role="alert">
+                                <p class="validation-msg__text">Your email is incorrect!</p>
+                            </div>
                             <input required type="email" id="msg-email" name="user-email" placeholder="Your email..." class="contact-form__input">
                             <label for="msg-phone" class="contact-form__label">Your phone number</label>
+                            <div id="msg-phone-error" class="validation-msg" aria-hidden="true" role="alert">
+                                <p class="validation-msg__text">Your phone number is incorrect!</p>
+                            </div>
                             <input required type="phone" id="msg-phone" name="user-phone" pattern="^([0|\+[0-9]{1,5})?([0-9]{9})$" placeholder="Your phone number..." class="contact-form__input">
                             <label for="msg-text" class="contact-form__label">Your message</label>
+                            <div id="msg-text-error" class="validation-msg" aria-hidden="true" role="alert">
+                                <p class="validation-msg__text">Write something...</p>
+                            </div>
                             <textarea required id="msg-text" name="user-message" placeholder="Your massage..." rows="15" class="contact-form__input"></textarea>
                             <button type="submit" class="btn btn--center btn--narrow">Send message</button>
                         </form>

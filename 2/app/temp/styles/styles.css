@@ -1461,22 +1461,35 @@ html {
 }
 
 .validation-msg {
-  display: none;
+  height: 0;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: height 0.35s;
+  transition: height 0.35s;
+  overflow: hidden;
 }
 
 .validation-msg__text {
-  color: rgb(191, 100, 107);
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 0.5em 0;
+  text-shadow: 1px 1px 1px rgb(211, 16, 32);
+}
+
+.validation-msg--active {
+  height: 2.8em;
 }
 
 input.validation-error, textarea.validation-error {
-  background-color: rgb(191, 100, 107);
+  background-color: rgba(247, 43, 59, 0.5);
   border: 2px solid rgb(211, 16, 32);
 }
 
 input.validation-ok, textarea.validation-ok {
-  background-color: rgb(106, 198, 90);
+  background-color: rgba(150, 185, 44, 0.5);
   border: 2px solid rgb(117, 145, 29);
+  color: rgb(38, 38, 38);
 }
 
 .subscribe {

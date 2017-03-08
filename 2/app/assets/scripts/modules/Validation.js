@@ -1,3 +1,5 @@
+"use strict";
+
 class Validation {
     
     constructor() {
@@ -14,51 +16,90 @@ class Validation {
         this.subscribeInput = [
             document.getElementById("sub-email")
         ];
-        
+        this.init();
         this.events();
+    }
+    
+    //allows form validation for non-js users
+    init() {
+        this.contactForm.setAttribute("novalidate", "novalidate");
+        this.subscribeForm.setAttribute("novalidate", "novalidate");
     }
     
     events() {
         document.addEventListener("DOMContentLoaded", () => {
             //contact
-            this.contactForm.addEventListener("submit", this.validateForm);
-            this.contactInput.forEach(input => input.addEventListener("blur", this.validateInput));
+            this.contactForm.addEventListener("submit", this.validate);
+            this.contactInput.forEach(input => input.addEventListener("blur", this.validate));
             //subscribe
-            this.subscribeForm.addEventListener("submit", this.validateForm);
-            this.subscribeInput.forEach(input => input.addEventListener("blur", this.validateInput));
+            this.subscribeForm.addEventListener("submit", this.validate);
+            this.subscribeInput.forEach(input => input.addEventListener("blur", this.validate));
         });
     }
-    
-    validateInput() {
-        if (!this.validity.valid) {
-            this.classList.add("validation-error");
-        } else {
-            this.classList.remove("validation-error");
-        }
-    }
-    validateForm(event) {
-        const inputsArray = [...this.getElementsByTagName("input")],
-        textareasArray = [...this.getElementsByTagName("textarea")];
-        let allInputs;
-        (textareasArray) ? allInputs = inputsArray.concat(textareasArray) : allInputs = inputsArray;
+    validate(event) {
+        const element = event.target;
         
-        allInputs.map(input => {
-            if (!input.validity.valid) {
-
-                //const errorMsg = this.getElementById(`${input.id}-error`);
-                //styles
-                input.classList.add("validation-error");
-                //errorMsg.classList.add("validation-msg");
-                //aria attributes
-                //errorMsg.setAttribute("aria-hidden", "false");
-                //input.setAttribute("aria-invalid", "true");
-                //input.setAttribute("aria-describedby", errorMsg.id);
-                
-                event.preventDefault();
+        function errorHandler(input, msg) {
+            //change input style
+            input.classList.remove("validation-ok");
+            input.classList.add("validation-error");
+            //display the message
+            msg.classList.add("validation-msg--active");
+            //aria attributes
+            msg.setAttribute("aria-hidden", "false");
+            input.setAttribute("aria-invalid", "true");
+            input.setAttribute("aria-describedby", msg.id);
+        }
+        
+        function okHandler(input, msg) {
+            //change input style
+            input.classList.remove("validation-error");
+            input.classList.add("validation-ok");
+            //display the message
+            msg.classList.remove("validation-msg--active");
+            //aria attributes
+            msg.setAttribute("aria-hidden", "true");
+            input.setAttribute("aria-invalid", "false");
+            input.removeAttribute("aria-describedby");
+        }
+        
+        function validateInput() {
+            const msg = document.querySelector(`#${element.id}-error`);
+            
+            if (!element.validity.valid) {
+                errorHandler(element, msg);
             } else {
-                input.classList.add("validation-ok");
-            }       
-        }); 
+                okHandler(element, msg);
+            }
+        }
+        
+        function validateForm() {
+            const inputsArray = [...element.getElementsByTagName("input")],
+            textareasArray = [...element.getElementsByTagName("textarea")];
+            let allInputs;
+            (textareasArray) ? allInputs = inputsArray.concat(textareasArray) : allInputs = inputsArray;
+
+            allInputs.map(input => {
+                const errorMsg = document.querySelector(`#${input.id}-error`);
+                
+                if (!input.validity.valid) {
+                    errorHandler(input, errorMsg);
+                    console.log(event);
+                    event.preventDefault();
+                } else {
+                    okHandler(input, errorMsg);
+                }       
+            }); 
+        }
+        
+        //triggering validation
+        if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+            validateInput(); 
+        } else if (element.tagName === "FORM") {
+            validateForm();
+        } else {
+            console.log("Inncorect event.target! ", element)
+        }
     }
 }
 

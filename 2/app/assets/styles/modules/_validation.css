@@ -1,12 +1,23 @@
 .validation {
     &-msg {
-        display: none;
+        height: 0;
         width: 100%;
+        margin: 0;
+        padding: 0;
+        transition: height 0.35s;
+        overflow: hidden;
         
         &__text {
-            color: $lightRed;
+            font-size: 1.6rem;
+            text-align: center;
+            margin: 0.5em 0;
+            text-shadow: 1px 1px 1px $darkRed;
         }
         
+    }
+    
+    &-msg--active {
+        height: 2.8em;
     }
 }
 
@@ -14,13 +25,14 @@ input.validation,
 textarea.validation {
     
     &-error {
-        background-color: $lightRed;
+        background-color: $transparentRed;
         border: 2px solid $darkRed;
     }
     
     &-ok {
-        background-color: $lightGreen;
+        background-color: $transparentGreen;
         border: 2px solid $darkGreen;
+        color: $mainBlack;
     }
     
 }
