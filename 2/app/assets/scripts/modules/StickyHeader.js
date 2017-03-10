@@ -1,5 +1,4 @@
-import smoothScroll from 'smoothscroll-polyfill'
-smoothScroll.polyfill()
+import smoothScroll from 'smoothscroll'
 
 class StickyHeader {
     
@@ -25,23 +24,24 @@ class StickyHeader {
  
     toggleShrink() {
         const headerHeight = this.pageHeader.clientHeight;
-        if (window.scrollY >= headerHeight ) {
+        
+        if (window.pageYOffset >= headerHeight ) {
             this.pageHeader.classList.add("page-header--scrolled");
         } else {
             this.pageHeader.classList.remove("page-header--scrolled");
         }
+        
     }
-    
     scrollToSection() {
         const pageSection = document.querySelector(`${this.hash}`);
-        pageSection.scrollIntoView({ behavior: "smooth" });
+        
+        smoothScroll(pageSection);
     }
     
     highlightLinks() {
-        this.pageSections.forEach( pageSection => {
-        
-            const isNotScrolledPast = window.scrollY < (pageSection.offsetTop + pageSection.offsetHeight),
-            isShown = pageSection.offsetTop - 1 < window.scrollY,
+        this.pageSections.forEach(pageSection => {
+            const isNotScrolledPast = window.pageYOffset < (pageSection.offsetTop + pageSection.offsetHeight),
+            isShown = pageSection.offsetTop - 1 < window.pageYOffset,
             menuLink = document.querySelector(`[href="#${pageSection.id}"]`);
           
             if (isShown && isNotScrolledPast){

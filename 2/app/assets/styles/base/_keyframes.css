@@ -16,3 +16,14 @@
         opacity: 1;
     }
 }
+
+@keyframes home__scroll-animation {
+    from {
+        opacity: 1;
+    }
+    
+    to {
+        opacity: 0;
+        transform: translateY(1em);
+    }
+}

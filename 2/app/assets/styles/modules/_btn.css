@@ -13,7 +13,8 @@
     cursor: pointer;
     @mixin boxShadow;
     
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $darkOrange;
     }
     
@@ -52,7 +53,8 @@
     &--blue {
         background-color: $mainBlue;
         
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: $darkBlue;
         }
     }
@@ -60,7 +62,8 @@
     &--green {
         background-color: $mainGreen;
         
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: $darkGreen;
         }
     }
@@ -68,7 +71,8 @@
     &--red {
         background-color: $mainRed;
         
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: $darkRed;
         }
     }

@@ -6,7 +6,9 @@
         <title>Cahee</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- build:css assets/styles/styles.css -->
         <link rel="stylesheet" href="temp/styles/styles.css">
+        <!-- endbuild -->
     </head>
     <body>
         <header class="page-header">
@@ -37,6 +39,7 @@
                         <p class="home__text">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
                         <a href="#" class="btn btn--center-xs">Get free now</a>
                     </div>
+                    <a href="#about" class="home__scroll" id="homeScroll"></a>
                 </div>
             </section>
             <section id="about" class="about">
@@ -145,7 +148,7 @@
                     <div id="articles" aria-live="polite" class="blog__articles-container">
                         <div class="grid-m">
                             <article class="blog-article grid__cell grid__cell--margin-right-m-xs">
-                                <a class="blog-article__link" href="http://www.foodnetwork.com/recipes/articles/50-smoothies">
+                                <a class="blog-article__link" href="#">
                                     <img class="blog-article__img" src="assets/images/blog-1.png" alt="Picture of green smoothies">
                                     <time class="blog-article__date" datetime="2016-11-20T19:00">
                                         20 <span class="blog-article__month">Nov</span>
@@ -157,7 +160,7 @@
                                 </a>
                             </article>
                             <article class="blog-article grid__cell grid__cell--margin-right-m-xs">
-                                <a class="blog-article__link" href="http://growingfoodconnections.org/research/communities-of-innovation/">
+                                <a class="blog-article__link" href="#">
                                     <img class="blog-article__img" src="assets/images/blog-2.png" alt="Picture of innovative food">
                                     <time class="blog-article__date" datetime="2016-11-14T19:00">
                                         14 <span class="blog-article__month">Nov</span>
@@ -169,7 +172,7 @@
                                 </a>
                             </article>
                             <article class="blog-article grid__cell">
-                                <a class="blog-article__link" href="https://www.epa.gov/safepestcontrol/food-and-pesticides">
+                                <a class="#">
                                     <img class="blog-article__img" src="assets/images/blog-3.png" alt="Picture of pesticide-free raspberries">
                                     <time class="blog-article__date" datetime="2016-11-10T19:00">
                                         10 <span class="blog-article__month">Nov</span>
@@ -233,13 +236,15 @@
                     <p class="page-footer__text">&copy; 2015 Company. All rights reserved.</p>
                 </li>
                 <li class="page-footer__logo grid__cell">
-                    <a href="" class="page-footer__link">Cahee</a>
+                    <a href="#home" id="footerScroll" class="page-footer__link">Cahee</a>
                 </li>
                 <li class="page-footer__author grid__cell">
                     <p class="page-footer__text">Designed with <span class="page-footer__emphasize">love</span> by <a href="https://www.behance.net/gallery/31676135/Cahee-FREE-Template-PSD" class="page-footer__link">Auskteez</a></p>
                 </li>
             </ul>
         </footer>
+        <!-- build:js assets/scripts/App.js -->
         <script src="/temp/scripts/App.js"></script>
+        <!-- endbuild -->
     </body>
 </html>

@@ -1,4 +1,4 @@
-.home{
+.home {
     background-image: url(../../assets/images/fresh-life.png);
 	background-repeat: no-repeat;
     background-position: 55% 20%;
@@ -10,12 +10,10 @@
     
     @mixin atMedium {
         background-position: 70% 20%;
-        
     }
     
     &__content {
         height: 100vh;
-        
     }
         
     &__heading {
@@ -50,5 +48,44 @@
             max-width: 23em;
         }
     }
+    
+        
+    &__scroll,
+    &__scroll:before {
+        position: absolute;
+        left: 50%;
+    }
+    &__scroll {
+        border: none;
+        background: none;
+        cursor: pointer;
+        box-shadow: inset 0 0 0 0.2em $mainBlack;
+        transition: box-shadow 0.5s ease-in-out;
+        
+        bottom: 3em;
 
+        width: 2em;
+        height: 3.2em;
+        border-radius: 2.5em;
+    }
+    &__scroll:before {
+        content: "";
+        background-color: $mainBlack;
+        animation: 1.5s ease-in 0s infinite normal home__scroll-animation;
+        
+        top: 0.5em;
+        width: 0.2em;
+        height: 0.9em;
+        margin-left: -0.1em;
+        border-radius: 100%;
+    }
+    
+    &__scroll:hover,
+    &__scroll:focus {
+        box-shadow: inset 0 4em 0.1em 0.2em $mainOrange;
+        &:before {
+            background-color: rgb(255, 255, 255);
+        }  
+    }
+    
 }
