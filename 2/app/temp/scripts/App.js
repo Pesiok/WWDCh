@@ -3617,6 +3617,7 @@ var FetchData = function () {
                 content.forEach(function (divContainer) {
                     return gridContainer.appendChild(divContainer);
                 });
+
                 output.appendChild(gridContainer);
             }
 
@@ -3721,6 +3722,7 @@ var ScrollTo = function () {
         _classCallCheck(this, ScrollTo);
 
         this.homeScrollBtn = document.getElementById("homeScroll");
+        this.homeSection = document.getElementById("home");
         this.footerScrollBtn = document.getElementById("footerScroll");
         this.events();
     }
@@ -3731,12 +3733,11 @@ var ScrollTo = function () {
             var _this = this;
 
             document.addEventListener("DOMContentLoaded", function () {
-                _this.homeScrollBtn.addEventListener("click", function () {
-                    return _this.scrollToDest;
-                });
-                _this.footerScrollBtn.addEventListener("click", function () {
-                    return _this.scrollToDest;
-                });
+                //clicks
+                _this.homeScrollBtn.addEventListener("click", _this.scrollToDest);
+                _this.footerScrollBtn.addEventListener("click", _this.scrollToDest);
+                //scroll
+                window.addEventListener("scroll", _this.unfixBtn.bind(_this));
             });
         }
     }, {
@@ -3744,6 +3745,18 @@ var ScrollTo = function () {
         value: function scrollToDest() {
             var destination = document.querySelector("" + this.hash);
             (0, _smoothscroll2.default)(destination);
+        }
+    }, {
+        key: "unfixBtn",
+        value: function unfixBtn() {
+            var homeBottom = this.homeSection.offsetTop + this.homeSection.offsetHeight,
+                pageBottom = window.pageYOffset + window.innerHeight;
+
+            if (pageBottom >= homeBottom) {
+                this.homeScrollBtn.classList.add("home__scroll--stop");
+            } else {
+                this.homeScrollBtn.classList.remove("home__scroll--stop");
+            }
         }
     }]);
 

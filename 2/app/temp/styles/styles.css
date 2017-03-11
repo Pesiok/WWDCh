@@ -671,9 +671,7 @@ html {
     padding-top: 1em;
     padding-bottom: 1em;
     
-    
     -webkit-transition: padding-top 0.3s ease-in-out;
-    
     
     transition: padding-top 0.3s ease-in-out;
 }
@@ -1076,6 +1074,7 @@ html {
 }
 
 .home {
+    position: relative;
     background-image: url(../../assets/images/fresh-life.png);
 	background-repeat: no-repeat;
     background-position: 55% 20%;
@@ -1098,6 +1097,7 @@ html {
 
 .home__content {
   height: 100vh;
+  min-height: 45em;
 }
 
 .home__heading {
@@ -1154,26 +1154,24 @@ html {
   }
 }
 
-.home__scroll,
-    .home__scroll:before {
-  position: absolute;
-  left: 50%;
-}
-
 .home__scroll {
+  position: fixed;
+  left: 50%;
   border: none;
   background: none;
   cursor: pointer;
   box-shadow: inset 0 0 0 0.2em rgb(38, 38, 38);
   -webkit-transition: box-shadow 0.5s ease-in-out;
   transition: box-shadow 0.5s ease-in-out;
-  bottom: 3em;
+  bottom: 1.5em;
   width: 2em;
   height: 3.2em;
   border-radius: 2.5em;
 }
 
 .home__scroll:before {
+  position: absolute;
+  left: 50%;
   content: "";
   background-color: rgb(38, 38, 38);
   -webkit-animation: 1.5s ease-in 0s infinite normal home__scroll-animation;
@@ -1192,6 +1190,10 @@ html {
 
 .home__scroll:hover:before, .home__scroll:focus:before {
   background-color: rgb(255, 255, 255);
+}
+
+.home__scroll--stop {
+  position: absolute;
 }
 
 .about {

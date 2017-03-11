@@ -166,6 +166,7 @@ class FetchData {
             gridContainer.classList.add("grid-m");
             
             content.forEach(divContainer => gridContainer.appendChild(divContainer));
+            
             output.appendChild(gridContainer);
         }
         

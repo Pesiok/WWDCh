@@ -5,9 +5,7 @@
     padding-top: 1em;
     padding-bottom: 1em;
     
-    
     transition: padding-top 0.3s ease-in-out;
-    
     
     @mixin atSmall {
         padding-top: 2em;
