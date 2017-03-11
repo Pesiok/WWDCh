@@ -63,6 +63,7 @@
         bottom: 1.5em;
         width: 2em;
         height: 3.2em;
+        margin-left: -1em;
         border-radius: 2.5em;
     }
     &__scroll:before {

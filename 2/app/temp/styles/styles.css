@@ -767,7 +767,14 @@ html {
 .page-navigation__container {
   margin: 0;
   padding-left: 0;
-  padding-top: 6em;
+  padding-top: 4.8em;
+}
+
+@media (min-width: 47.5em) {
+
+  .page-navigation__container {
+    padding-top: 8em;
+  }
 }
 
 @media (min-width: 63.75em) {
@@ -782,7 +789,15 @@ html {
   list-style: none;
   text-align: center;
   font-size: 1.6rem;
-  margin-bottom: 2.2em;
+  margin-bottom: 1.5em;
+}
+
+@media (min-width: 47.5em) {
+
+  .page-navigation__item {
+    margin-bottom: 2.2em;
+    font-size: 1.7rem;
+  }
 }
 
 @media (min-width: 63.75em) {
@@ -1166,6 +1181,7 @@ html {
   bottom: 1.5em;
   width: 2em;
   height: 3.2em;
+  margin-left: -1em;
   border-radius: 2.5em;
 }
 

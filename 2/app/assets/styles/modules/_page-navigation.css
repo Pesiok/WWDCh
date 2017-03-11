@@ -32,7 +32,11 @@
         margin: 0;
         padding-left: 0;
         
-        padding-top: 6em;
+        padding-top: 4.8em;
+        
+        @mixin atMedium {
+            padding-top: 8em;
+        }
         
         @mixin atLarge {
             padding-top: 0;
@@ -45,8 +49,11 @@
         text-align: center;
         font-size: 1.6rem;
         
-        margin-bottom: 2.2em;
-        
+        margin-bottom: 1.5em;
+        @mixin atMedium {
+            margin-bottom: 2.2em;
+            font-size: 1.7rem;
+        }
         @mixin atLarge {
             margin-bottom: 0;
             font-size: 1.6rem;
