@@ -3594,16 +3594,22 @@ var FetchData = function () {
                     img = document.createElement("img"),
                     divContainer = document.createElement("div");
 
-                objectURL ? img.src = objectURL : img.src = "../../assets/images/error.jpg";
+                if (objectURL) {
+                    img.src = objectURL;
+                    img.alt = "Picture of a kitten";
+                } else {
+                    img.src = "../../assets/images/error.jpg";
+                    img.alt = "Error message";
+                }
 
-                img.alt = "";
                 img.classList.add("gallery__img");
                 img.classList.add("grid__cell");
-
                 divContainer.classList.add("grid__cell");
+
                 if (index === 0) {
                     divContainer.classList.add("grid__cell--margin-right-m-xs");
                 }
+
                 divContainer.appendChild(img);
 
                 return divContainer;

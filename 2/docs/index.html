@@ -6,7 +6,7 @@
         <title>Cahee</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="assets/styles/styles-b8bb06cefb.css"/>
+        <link rel="stylesheet" href="assets/styles/styles-9706fc613b.css"/>
     </head>
     <body>
         <header class="page-header">
@@ -15,10 +15,11 @@
                     <h1 class="page-header__logo grid__cell">Cahee</h1>
                     <button class="menu-icon" aria-expanded="false">
                         <span class="menu-icon__label">Open/Close Menu</span>
-                        <div class="menu-icon__middle" aria-hidden="true"></div>
+                        <span class="menu-icon__middle" aria-hidden="true"></span>
                     </button>
                 </div>
                 <nav class="page-navigation grid__cell grid-l grid--center" aria-controls="main-navigation">
+                    <h2 class="page-navigation__heading">Main navigation</h2>
                     <ul class="page-navigation__container grid__cell grid-l grid--center" id="main-navigation">            
                         <li class="page-navigation__item "><a href="#home">Home</a></li>
                         <li class="page-navigation__item "><a href="#about">About</a></li>
@@ -100,19 +101,19 @@
                     <div class="gallery__img-container">
                         <div class="gallery__row grid-m">
                             <div class="grid__cell-gallery-l grid__cell--margin-right-m-xs">
-                                <img class="gallery__img" src="assets/images/gallery-l.png" alt="">
+                                <img class="gallery__img" src="assets/images/gallery-l.png" alt="Picture of a peach">
                             </div>
                             <div class="grid__cell-gallery-s grid-m grid--column">
-                                <img class="gallery__img" src="assets/images/gallery-s.png" alt="">
-                                <img class="gallery__img" src="assets/images/gallery-s2.png" alt="">
+                                <img class="gallery__img" src="assets/images/gallery-s.png" alt="Picture of blueberry">
+                                <img class="gallery__img" src="assets/images/gallery-s2.png" alt="Picture of blackberry">
                             </div>   
                         </div>
                         <div class="gallery__row grid-m">
                             <div class="grid__cell grid__cell--margin-right-m-xs">
-                                <img class="gallery__img" src="assets/images/gallery-m.png" alt="">
+                                <img class="gallery__img" src="assets/images/gallery-m.png" alt="Picture of a blueberry in milk">
                             </div>
                             <div class="grid__cell">
-                                <img class="gallery__img" src="assets/images/gallery-m2.png" alt="">
+                                <img class="gallery__img" src="assets/images/gallery-m2.png" alt="Picture of a kaki fruit">
                             </div>
                         </div>
                     </div>
@@ -125,7 +126,7 @@
                 <div class="wrapper subscribe__content">
                     <h2 class="subscribe__heading">Subscribe to us</h2>
                     <p class="subscribe__text">Dolor sir amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <form class="subscribe-form grid-m">
+                    <form action="#" method="post" class="subscribe-form grid-m">
                         <div class="grid__cell grid__cell--margin-right-m-xs">
                             <label class="subscribe-form__label" for="sub-email">Your email address</label>
                             <input required type="email" class="subscribe-form__input" id="sub-email" placeholder="Your email address">
@@ -191,7 +192,7 @@
                     <h2 class="contact__heading">Contact</h2>
                     <p class="contact__text">For new projects, ideas, business or anything you'd like to discuss contact with me!</p>
                     <div class="grid-m">
-                        <form class="contact-form grid__cell grid__cell--margin-right-m-m">
+                        <form action="#" method="post" class="contact-form grid__cell grid__cell--margin-right-m-m">
                             <h3 class="contact-form__heading">Contact form</h3>
                             <label for="msg-name" class="contact-form__label">Your name</label>
                             <div id="msg-name-error" class="validation-msg" aria-hidden="true" role="alert">
@@ -207,7 +208,7 @@
                             <div id="msg-phone-error" class="validation-msg" aria-hidden="true" role="alert">
                                 <p class="validation-msg__text">Your phone number is incorrect!</p>
                             </div>
-                            <input required type="phone" id="msg-phone" name="user-phone" pattern="^([0|\+[0-9]{1,5})?([0-9]{9})$" placeholder="Your phone number..." class="contact-form__input">
+                            <input required type="tel" id="msg-phone" name="user-phone" pattern="^([0|\+[0-9]{1,5})?([0-9]{9})$" placeholder="Your phone number..." class="contact-form__input">
                             <label for="msg-text" class="contact-form__label">Your message</label>
                             <div id="msg-text-error" class="validation-msg" aria-hidden="true" role="alert">
                                 <p class="validation-msg__text">Write something...</p>
@@ -241,6 +242,6 @@
                 </li>
             </ul>
         </footer>
-        <script src="assets/scripts/App-98ae958b3e.js"></script>
+        <script src="assets/scripts/App-7d5e04a919.js"></script>
     </body>
 </html>
