@@ -250,7 +250,14 @@ body
 }
 .hidden
 {
-    display: none;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 @media all and (min-width: 421px)
 {
@@ -272,6 +279,8 @@ body
         display: -ms-flexbox;
         display: flex;
 
+        max-width: 1400px;
+        margin: 0 auto;               
         margin-bottom: 5em;
 
         -ms-flex-pack: distribute;
