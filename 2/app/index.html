@@ -17,10 +17,11 @@
                     <h1 class="page-header__logo grid__cell">Cahee</h1>
                     <button class="menu-icon" aria-expanded="false">
                         <span class="menu-icon__label">Open/Close Menu</span>
-                        <div class="menu-icon__middle" aria-hidden="true"></div>
+                        <span class="menu-icon__middle" aria-hidden="true"></span>
                     </button>
                 </div>
                 <nav class="page-navigation grid__cell grid-l grid--center" aria-controls="main-navigation">
+                    <h2 class="page-navigation__heading">Main navigation</h2>
                     <ul class="page-navigation__container grid__cell grid-l grid--center" id="main-navigation">            
                         <li class="page-navigation__item "><a href="#home">Home</a></li>
                         <li class="page-navigation__item "><a href="#about">About</a></li>
@@ -209,7 +210,7 @@
                             <div id="msg-phone-error" class="validation-msg" aria-hidden="true" role="alert">
                                 <p class="validation-msg__text">Your phone number is incorrect!</p>
                             </div>
-                            <input required type="phone" id="msg-phone" name="user-phone" pattern="^([0|\+[0-9]{1,5})?([0-9]{9})$" placeholder="Your phone number..." class="contact-form__input">
+                            <input required type="tel" id="msg-phone" name="user-phone" pattern="^([0|\+[0-9]{1,5})?([0-9]{9})$" placeholder="Your phone number..." class="contact-form__input">
                             <label for="msg-text" class="contact-form__label">Your message</label>
                             <div id="msg-text-error" class="validation-msg" aria-hidden="true" role="alert">
                                 <p class="validation-msg__text">Write something...</p>
