@@ -20,7 +20,7 @@ class Validation {
         this.events();
     }
     
-    //allows form validation for non-js users
+    //allows normal HTML 5 validation for non-js users
     init() {
         this.contactForm.setAttribute("novalidate", "novalidate");
         this.subscribeForm.setAttribute("novalidate", "novalidate");
@@ -38,6 +38,20 @@ class Validation {
     }
     validate(event) {
         const element = event.target;
+
+        //feedback handlers
+
+        function resetHandler(input, msg) {
+            //change input style
+            input.classList.remove("validation-ok");
+            input.classList.remove("validation-error");
+            //display the message
+            msg.classList.remove("validation-msg--active");
+            //aria attributes
+            msg.removeAttribute("aria-hidden");
+            input.removeAttribute("aria-describedby");
+            input.removeAttribute("aria-invalid");
+        }
         
         function errorHandler(input, msg) {
             //change input style
@@ -62,11 +76,14 @@ class Validation {
             input.setAttribute("aria-invalid", "false");
             input.removeAttribute("aria-describedby");
         }
+
+        //validation
         
         function validateInput() {
             const msg = document.querySelector(`#${element.id}-error`);
-            
-            if (!element.validity.valid) {
+            if (element.validity.valueMissing) {
+                resetHandler(element, msg);
+            } else if (!element.validity.valid) {
                 errorHandler(element, msg);
             } else {
                 okHandler(element, msg);
@@ -93,6 +110,7 @@ class Validation {
         }
         
         //triggering validation
+        
         if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
             validateInput(); 
         } else if (element.tagName === "FORM") {

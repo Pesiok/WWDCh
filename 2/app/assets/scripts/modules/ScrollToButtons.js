@@ -1,6 +1,8 @@
+"use strict";
+
 import smoothScroll from 'smoothscroll'
 
-class ScrollTo {
+class ScrollToButtons {
     
     constructor() {
         this.homeScrollBtn = document.getElementById("homeScroll");
@@ -14,13 +16,17 @@ class ScrollTo {
             //clicks
             this.homeScrollBtn.addEventListener("click", this.scrollToDest);
             this.footerScrollBtn.addEventListener("click", this.scrollToDest);
-            //scroll
+
+            //check btn position on load
+            this.unfixBtn();
+            //check btn position oc scroll
             window.addEventListener("scroll", this.unfixBtn.bind(this));
         });
     }
     
     scrollToDest() {
         const destination = document.querySelector(`${this.hash}`);
+
         smoothScroll(destination);
     }
     
@@ -36,4 +42,4 @@ class ScrollTo {
     }
 }
 
-export default ScrollTo;
+export default ScrollToButtons;

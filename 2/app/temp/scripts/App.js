@@ -3603,6 +3603,7 @@ var FetchData = function () {
                 }
 
                 img.classList.add("gallery__img");
+                img.classList.add("gallery__img--equal-height");
                 img.classList.add("grid__cell");
                 divContainer.classList.add("grid__cell");
 
@@ -3723,9 +3724,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ScrollTo = function () {
-    function ScrollTo() {
-        _classCallCheck(this, ScrollTo);
+var ScrollToButtons = function () {
+    function ScrollToButtons() {
+        _classCallCheck(this, ScrollToButtons);
 
         this.homeScrollBtn = document.getElementById("homeScroll");
         this.homeSection = document.getElementById("home");
@@ -3733,7 +3734,7 @@ var ScrollTo = function () {
         this.events();
     }
 
-    _createClass(ScrollTo, [{
+    _createClass(ScrollToButtons, [{
         key: "events",
         value: function events() {
             var _this = this;
@@ -3742,7 +3743,10 @@ var ScrollTo = function () {
                 //clicks
                 _this.homeScrollBtn.addEventListener("click", _this.scrollToDest);
                 _this.footerScrollBtn.addEventListener("click", _this.scrollToDest);
-                //scroll
+
+                //check btn position on load
+                _this.unfixBtn();
+                //check btn position oc scroll
                 window.addEventListener("scroll", _this.unfixBtn.bind(_this));
             });
         }
@@ -3750,6 +3754,7 @@ var ScrollTo = function () {
         key: "scrollToDest",
         value: function scrollToDest() {
             var destination = document.querySelector("" + this.hash);
+
             (0, _smoothscroll2.default)(destination);
         }
     }, {
@@ -3766,10 +3771,10 @@ var ScrollTo = function () {
         }
     }]);
 
-    return ScrollTo;
+    return ScrollToButtons;
 }();
 
-exports.default = ScrollTo;
+exports.default = ScrollToButtons;
 
 /***/ }),
 /* 118 */
@@ -3810,10 +3815,12 @@ var StickyHeader = function () {
             var _this = this;
 
             document.addEventListener("DOMContentLoaded", function () {
+                //check on load
+                _this.highlightLinks();
+                _this.toggleShrink();
+                //check on scroll
                 window.addEventListener("scroll", function () {
-                    // Shrink header
                     _this.highlightLinks();
-                    // Highlight navigation links
                     _this.toggleShrink();
                 });
                 // Scroll to section
@@ -3827,7 +3834,7 @@ var StickyHeader = function () {
         value: function toggleShrink() {
             var headerHeight = this.pageHeader.clientHeight;
 
-            if (window.pageYOffset >= headerHeight) {
+            if (window.pageYOffset >= headerHeight / 2) {
                 this.pageHeader.classList.add("page-header--scrolled");
             } else {
                 this.pageHeader.classList.remove("page-header--scrolled");
@@ -3843,9 +3850,11 @@ var StickyHeader = function () {
     }, {
         key: "highlightLinks",
         value: function highlightLinks() {
+            var _this2 = this;
+
             this.pageSections.forEach(function (pageSection) {
-                var isNotScrolledPast = window.pageYOffset < pageSection.offsetTop + pageSection.offsetHeight,
-                    isShown = pageSection.offsetTop - 1 < window.pageYOffset,
+                var isNotScrolledPast = window.pageYOffset < pageSection.offsetTop - _this2.pageHeader.offsetHeight + pageSection.offsetHeight,
+                    isShown = pageSection.offsetTop - _this2.pageHeader.offsetHeight < window.pageYOffset,
                     menuLink = document.querySelector("[href=\"#" + pageSection.id + "\"]");
 
                 if (isShown && isNotScrolledPast) {
@@ -3893,7 +3902,7 @@ var Validation = function () {
         this.events();
     }
 
-    //allows form validation for non-js users
+    //allows normal HTML 5 validation for non-js users
 
 
     _createClass(Validation, [{
@@ -3925,6 +3934,20 @@ var Validation = function () {
         value: function validate(event) {
             var element = event.target;
 
+            //feedback handlers
+
+            function resetHandler(input, msg) {
+                //change input style
+                input.classList.remove("validation-ok");
+                input.classList.remove("validation-error");
+                //display the message
+                msg.classList.remove("validation-msg--active");
+                //aria attributes
+                msg.removeAttribute("aria-hidden");
+                input.removeAttribute("aria-describedby");
+                input.removeAttribute("aria-invalid");
+            }
+
             function errorHandler(input, msg) {
                 //change input style
                 input.classList.remove("validation-ok");
@@ -3949,10 +3972,13 @@ var Validation = function () {
                 input.removeAttribute("aria-describedby");
             }
 
+            //validation
+
             function validateInput() {
                 var msg = document.querySelector("#" + element.id + "-error");
-
-                if (!element.validity.valid) {
+                if (element.validity.valueMissing) {
+                    resetHandler(element, msg);
+                } else if (!element.validity.valid) {
                     errorHandler(element, msg);
                 } else {
                     okHandler(element, msg);
@@ -3979,6 +4005,7 @@ var Validation = function () {
             }
 
             //triggering validation
+
             if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
                 validateInput();
             } else if (element.tagName === "FORM") {
@@ -9525,9 +9552,9 @@ var _StickyHeader = __webpack_require__(118);
 
 var _StickyHeader2 = _interopRequireDefault(_StickyHeader);
 
-var _ScrollTo = __webpack_require__(117);
+var _ScrollToButtons = __webpack_require__(117);
 
-var _ScrollTo2 = _interopRequireDefault(_ScrollTo);
+var _ScrollToButtons2 = _interopRequireDefault(_ScrollToButtons);
 
 var _FetchData = __webpack_require__(115);
 
@@ -9541,7 +9568,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mobileMenu = new _MobileMenu2.default();
 var stickyHeader = new _StickyHeader2.default();
-var scrollTo = new _ScrollTo2.default();
+var scrollToButtons = new _ScrollToButtons2.default();
 var fetchData = new _FetchData2.default();
 var validation = new _Validation2.default();
 

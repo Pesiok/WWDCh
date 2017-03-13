@@ -1492,8 +1492,6 @@ html {
   }
 }
 
-.gallery__img-container {}
-
 .gallery__img {
   display: block;
   width: 100%;
@@ -1508,6 +1506,11 @@ html {
   .gallery__img {
     margin-bottom: 0;
   }
+}
+
+.gallery__img--equal-height {
+  max-height: 400px;
+  overflow: hidden;
 }
 
 .gallery__heading {

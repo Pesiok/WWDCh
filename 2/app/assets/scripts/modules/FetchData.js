@@ -1,3 +1,5 @@
+"use strict";
+
 import 'whatwg-fetch'
 
 class FetchData {
@@ -154,6 +156,7 @@ class FetchData {
             }
             
             img.classList.add("gallery__img");
+            img.classList.add("gallery__img--equal-height");
             img.classList.add("grid__cell");
             divContainer.classList.add("grid__cell");
             

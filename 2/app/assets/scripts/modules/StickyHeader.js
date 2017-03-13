@@ -1,3 +1,5 @@
+"use strict";
+
 import smoothScroll from 'smoothscroll'
 
 class StickyHeader {
@@ -11,10 +13,12 @@ class StickyHeader {
     
     events() {
         document.addEventListener("DOMContentLoaded", () => {
+            //check on load
+            this.highlightLinks();
+            this.toggleShrink();
+            //check on scroll
             window.addEventListener("scroll", () => {
-                // Shrink header
                this.highlightLinks();
-                // Highlight navigation links
                this.toggleShrink();
             });
             // Scroll to section
@@ -25,7 +29,7 @@ class StickyHeader {
     toggleShrink() {
         const headerHeight = this.pageHeader.clientHeight;
         
-        if (window.pageYOffset >= headerHeight ) {
+        if (window.pageYOffset >= (headerHeight / 2 )) {
             this.pageHeader.classList.add("page-header--scrolled");
         } else {
             this.pageHeader.classList.remove("page-header--scrolled");
@@ -40,8 +44,8 @@ class StickyHeader {
     
     highlightLinks() {
         this.pageSections.forEach(pageSection => {
-            const isNotScrolledPast = window.pageYOffset < (pageSection.offsetTop + pageSection.offsetHeight),
-            isShown = pageSection.offsetTop - 1 < window.pageYOffset,
+            const isNotScrolledPast = window.pageYOffset < (pageSection.offsetTop - this.pageHeader.offsetHeight + pageSection.offsetHeight),
+            isShown = (pageSection.offsetTop - this.pageHeader.offsetHeight) < window.pageYOffset,
             menuLink = document.querySelector(`[href="#${pageSection.id}"]`);
           
             if (isShown && isNotScrolledPast){

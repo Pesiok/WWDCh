@@ -11,10 +11,7 @@
             margin-bottom: 2.5em;
         }
     }
-    
-    &__img-container {
-    }
-    
+  
     &__img {
         display: block;
         width: 100%;
@@ -27,7 +24,13 @@
         @mixin atMedium {
             margin-bottom: 0;
         }
+
+        &--equal-height {
+            max-height: 400px;
+            overflow: hidden;
+        }
     }
+
     
     &__heading {
         @mixin headingNormal;

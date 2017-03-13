@@ -15,7 +15,7 @@
             <div class="wrapper grid">
                 <div class="page-header__content grid__cell grid grid--center">
                     <h1 class="page-header__logo grid__cell">Cahee</h1>
-                    <button class="menu-icon" aria-expanded="false">
+                    <button type="button" class="menu-icon" aria-expanded="false">
                         <span class="menu-icon__label">Open/Close Menu</span>
                         <span class="menu-icon__middle" aria-hidden="true"></span>
                     </button>
@@ -46,7 +46,7 @@
             <section id="about" class="about">
                 <div class="wrapper grid-m grid--center about__content">
                     <div class="grid__cell about__img" aria-hidden="true">
-                        <img src="assets/images/aboutus.png" alt="">
+                        <img src="assets/images/about-us.png" alt="Picture of a cup full of raspberries">
                     </div>
                     <div class="grid__cell grid__cell--margin-left-m-s">
                         <h2 class="about__heading">About Us</h2>
@@ -100,7 +100,7 @@
                 <div class="wrapper gallery__content">
                     <h2 class="gallery__heading">Gallery</h2>
                     <p class="gallery__text">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                    <div class="gallery__img-container">
+                    <div id="gallery-images" class="gallery__img-container" aria-live="polite">
                         <div class="gallery__row grid-m">
                             <div class="grid__cell-gallery-l grid__cell--margin-right-m-xs">
                                 <img class="gallery__img" src="assets/images/gallery-l.png" alt="Picture of a peach">
@@ -112,15 +112,15 @@
                         </div>
                         <div class="gallery__row grid-m">
                             <div class="grid__cell grid__cell--margin-right-m-xs">
-                                <img class="gallery__img" src="assets/images/gallery-m.png" alt="Picture of a blueberry in milk">
+                                <img class="gallery__img gallery__img--equal-height" src="assets/images/gallery-m.png" alt="Picture of a blueberry in milk">
                             </div>
                             <div class="grid__cell">
-                                <img class="gallery__img" src="assets/images/gallery-m2.png" alt="Picture of a kaki fruit">
+                                <img class="gallery__img gallery__img--equal-height" src="assets/images/gallery-m2.png" alt="Picture of a kaki fruit">
                             </div>
                         </div>
                     </div>
                     <div class="gallery__btn-container">
-                        <button id="gallery-btn" class="btn btn--center btn--blue">View more</button>
+                        <button type="button" id="gallery-btn" aria-controls="gallery-images" class="btn btn--center btn--blue">View more</button>
                     </div>
                 </div>
             </section>
@@ -128,7 +128,7 @@
                 <div class="wrapper subscribe__content">
                     <h2 class="subscribe__heading">Subscribe to us</h2>
                     <p class="subscribe__text">Dolor sir amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <form action="#" method="post" class="subscribe-form grid-m">
+                    <form action="#" method="post" class="subscribe-form grid-m" name="subscribe-form">
                         <div class="grid__cell grid__cell--margin-right-m-xs">
                             <label class="subscribe-form__label" for="sub-email">Your email address</label>
                             <input required type="email" class="subscribe-form__input" id="sub-email" placeholder="Your email address">
@@ -186,7 +186,7 @@
                             </article>
                         </div>
                     </div>
-                    <button id="blog-btn" aria-controls="articles" class="btn btn--center btn--red">View more</button>
+                    <button type="button" id="blog-btn" aria-controls="articles" class="btn btn--center btn--red">View more</button>
                 </div>
             </section>
             <section id="contact" class="contact">
@@ -194,7 +194,7 @@
                     <h2 class="contact__heading">Contact</h2>
                     <p class="contact__text">For new projects, ideas, business or anything you'd like to discuss contact with me!</p>
                     <div class="grid-m">
-                        <form action="#" method="post" class="contact-form grid__cell grid__cell--margin-right-m-m">
+                        <form action="#" method="post" class="contact-form grid__cell grid__cell--margin-right-m-m" name="subscribe-form">
                             <h3 class="contact-form__heading">Contact form</h3>
                             <label for="msg-name" class="contact-form__label">Your name</label>
                             <div id="msg-name-error" class="validation-msg" aria-hidden="true" role="alert">
